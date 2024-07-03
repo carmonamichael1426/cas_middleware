@@ -1,0 +1,1878 @@
+.icon-custom {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+/* ================================================================================
+Example showing how to change the color/size of the icons:
+.icon-custom-name {
+	font-size: 32px; // works because "width" & "height" were set using em units
+	color: red; // works because "fill" was set to "currentColor"
+}
+================================================================================ */
+
+.icon-custom-search {
+	width: 0.9287109375em;
+}
+
+.icon-custom-star {
+	width: 0.9287109375em;
+}
+
+.icon-custom-star-o {
+	width: 0.9287109375em;
+}
+
+.icon-custom-user2 {
+	width: 0.7861328125em;
+}
+
+.icon-custom-film {
+	width: 1.0712890625em;
+}
+
+.icon-custom-th-large {
+	width: 0.9287109375em;
+}
+
+.icon-custom-close {
+	width: 0.7861328125em;
+}
+
+.icon-custom-search-plus {
+	width: 0.9287109375em;
+}
+
+.icon-custom-search-minus {
+	width: 0.9287109375em;
+}
+
+.icon-custom-trash-o {
+	width: 0.7861328125em;
+}
+
+.icon-custom-home {
+	width: 0.9287109375em;
+}
+
+.icon-custom-road {
+	width: 1.0712890625em;
+}
+
+.icon-custom-download {
+	width: 0.9287109375em;
+}
+
+.icon-custom-lock {
+	width: 0.642578125em;
+}
+
+.icon-custom-headphones {
+	width: 0.9287109375em;
+}
+
+.icon-custom-volume-off {
+	width: 0.4287109375em;
+}
+
+.icon-custom-volume-down {
+	width: 0.642578125em;
+}
+
+.icon-custom-volume-up {
+	width: 0.9287109375em;
+}
+
+.icon-custom-qrcode {
+	width: 0.7861328125em;
+}
+
+.icon-custom-tags {
+	width: 1.0712890625em;
+}
+
+.icon-custom-book {
+	width: 0.9287109375em;
+}
+
+.icon-custom-bookmark {
+	width: 0.7138671875em;
+}
+
+.icon-custom-print {
+	width: 0.9287109375em;
+}
+
+.icon-custom-camera {
+	width: 1.0712890625em;
+}
+
+.icon-custom-font {
+	width: 0.9287109375em;
+}
+
+.icon-custom-bold {
+	width: 0.7861328125em;
+}
+
+.icon-custom-italic {
+	width: 0.5712890625em;
+}
+
+.icon-custom-image {
+	width: 1.0712890625em;
+}
+
+.icon-custom-map-marker {
+	width: 0.5712890625em;
+}
+
+.icon-custom-tint {
+	width: 0.5712890625em;
+}
+
+.icon-custom-share-square-o {
+	width: 0.9287109375em;
+}
+
+.icon-custom-check-square-o {
+	width: 0.9287109375em;
+}
+
+.icon-custom-step-backward {
+	width: 0.5712890625em;
+}
+
+.icon-custom-backward {
+	width: 0.9287109375em;
+}
+
+.icon-custom-play {
+	width: 0.7861328125em;
+}
+
+.icon-custom-forward {
+	width: 0.9287109375em;
+}
+
+.icon-custom-step-forward {
+	width: 0.5712890625em;
+}
+
+.icon-custom-eject {
+	width: 0.8583984375em;
+}
+
+.icon-custom-chevron-left {
+	width: 0.7138671875em;
+}
+
+.icon-custom-chevron-right {
+	width: 0.7138671875em;
+}
+
+.icon-custom-arrow-up {
+	width: 0.9287109375em;
+}
+
+.icon-custom-arrow-down {
+	width: 0.9287109375em;
+}
+
+.icon-custom-plus {
+	width: 0.7861328125em;
+}
+
+.icon-custom-minus {
+	width: 0.7861328125em;
+}
+
+.icon-custom-asterisk {
+	width: 0.9287109375em;
+}
+
+.icon-custom-fire {
+	width: 0.7861328125em;
+}
+
+.icon-custom-plane {
+	width: 0.7861328125em;
+}
+
+.icon-custom-calendar {
+	width: 0.9287109375em;
+}
+
+.icon-custom-retweet {
+	width: 1.0712890625em;
+}
+
+.icon-custom-shopping-cart {
+	width: 0.9287109375em;
+}
+
+.icon-custom-folder {
+	width: 0.9287109375em;
+}
+
+.icon-custom-folder-open {
+	width: 1.0712890625em;
+}
+
+.icon-custom-arrows-v {
+	width: 0.4287109375em;
+}
+
+.icon-custom-bar-chart {
+	width: 1.142578125em;
+}
+
+.icon-custom-cogs {
+	width: 1.0712890625em;
+}
+
+.icon-custom-star-half {
+	width: 0.5em;
+}
+
+.icon-custom-sign-out {
+	width: 0.9287109375em;
+}
+
+.icon-custom-thumb-tack {
+	width: 0.642578125em;
+}
+
+.icon-custom-trophy {
+	width: 0.9287109375em;
+}
+
+.icon-custom-upload {
+	width: 0.9287109375em;
+}
+
+.icon-custom-phone {
+	width: 0.7861328125em;
+}
+
+.icon-custom-square-o {
+	width: 0.7861328125em;
+}
+
+.icon-custom-bookmark-o {
+	width: 0.7138671875em;
+}
+
+.icon-custom-twitter {
+	width: 0.9287109375em;
+}
+
+.icon-custom-facebook {
+	width: 0.5712890625em;
+}
+
+.icon-custom-unlock {
+	width: 0.9287109375em;
+}
+
+.icon-custom-credit-card {
+	width: 1.0712890625em;
+}
+
+.icon-custom-rss {
+	width: 0.7861328125em;
+}
+
+.icon-custom-wrench {
+	width: 0.9287109375em;
+}
+
+.icon-custom-filter {
+	width: 0.7861328125em;
+}
+
+.icon-custom-group {
+	width: 1.0712890625em;
+}
+
+.icon-custom-chain {
+	width: 0.9287109375em;
+}
+
+.icon-custom-cloud {
+	width: 1.0712890625em;
+}
+
+.icon-custom-flask {
+	width: 0.9287109375em;
+}
+
+.icon-custom-paperclip {
+	width: 0.7861328125em;
+}
+
+.icon-custom-table {
+	width: 0.9287109375em;
+}
+
+.icon-custom-magic {
+	width: 0.9287109375em;
+}
+
+.icon-custom-google-plus {
+	width: 0.9287109375em;
+}
+
+.icon-custom-money {
+	width: 1.0712890625em;
+}
+
+.icon-custom-caret-down {
+	width: 0.5712890625em;
+}
+
+.icon-custom-caret-up {
+	width: 0.5712890625em;
+}
+
+.icon-custom-caret-left {
+	width: 0.357421875em;
+}
+
+.icon-custom-caret-right {
+	width: 0.357421875em;
+}
+
+.icon-custom-columns {
+	width: 0.9287109375em;
+}
+
+.icon-custom-sort {
+	width: 0.5712890625em;
+}
+
+.icon-custom-sort-desc {
+	width: 0.5712890625em;
+}
+
+.icon-custom-sort-asc {
+	width: 0.5712890625em;
+}
+
+.icon-custom-bolt {
+	width: 0.5em;
+}
+
+.icon-custom-umbrella {
+	width: 0.9287109375em;
+}
+
+.icon-custom-lightbulb-o {
+	width: 0.5712890625em;
+}
+
+.icon-custom-cloud-download {
+	width: 1.0712890625em;
+}
+
+.icon-custom-cloud-upload {
+	width: 1.0712890625em;
+}
+
+.icon-custom-user-md {
+	width: 0.7861328125em;
+}
+
+.icon-custom-stethoscope {
+	width: 0.7861328125em;
+}
+
+.icon-custom-coffee2 {
+	width: 1.0712890625em;
+}
+
+.icon-custom-cutlery {
+	width: 0.7861328125em;
+}
+
+.icon-custom-building-o {
+	width: 0.7861328125em;
+}
+
+.icon-custom-hospital-o {
+	width: 0.7861328125em;
+}
+
+.icon-custom-ambulance {
+	width: 1.0712890625em;
+}
+
+.icon-custom-fighter-jet {
+	width: 1.0712890625em;
+}
+
+.icon-custom-beer {
+	width: 0.9287109375em;
+}
+
+.icon-custom-angle-double-left {
+	width: 0.5712890625em;
+}
+
+.icon-custom-angle-double-right {
+	width: 0.5712890625em;
+}
+
+.icon-custom-angle-double-up {
+	width: 0.642578125em;
+}
+
+.icon-custom-angle-double-down {
+	width: 0.642578125em;
+}
+
+.icon-custom-angle-left {
+	width: 0.357421875em;
+}
+
+.icon-custom-angle-right {
+	width: 0.357421875em;
+}
+
+.icon-custom-angle-up {
+	width: 0.642578125em;
+}
+
+.icon-custom-angle-down {
+	width: 0.642578125em;
+}
+
+.icon-custom-desktop {
+	width: 1.0712890625em;
+}
+
+.icon-custom-laptop {
+	width: 1.0712890625em;
+}
+
+.icon-custom-tablet {
+	width: 0.642578125em;
+}
+
+.icon-custom-mobile {
+	width: 0.4287109375em;
+}
+
+.icon-custom-quote-left {
+	width: 0.9287109375em;
+}
+
+.icon-custom-quote-right {
+	width: 0.9287109375em;
+}
+
+.icon-custom-github-alt {
+	width: 0.9287109375em;
+}
+
+.icon-custom-folder-o {
+	width: 0.9287109375em;
+}
+
+.icon-custom-folder-open-o {
+	width: 1.0712890625em;
+}
+
+.icon-custom-gamepad {
+	width: 1.0712890625em;
+}
+
+.icon-custom-keyboard-o {
+	width: 1.0712890625em;
+}
+
+.icon-custom-terminal {
+	width: 0.9287109375em;
+}
+
+.icon-custom-code {
+	width: 1.0712890625em;
+}
+
+.icon-custom-star-half-empty {
+	width: 0.9287109375em;
+}
+
+.icon-custom-location-arrow {
+	width: 0.7861328125em;
+}
+
+.icon-custom-crop {
+	width: 0.9287109375em;
+}
+
+.icon-custom-code-fork {
+	width: 0.5712890625em;
+}
+
+.icon-custom-chain-broken {
+	width: 0.9287109375em;
+}
+
+.icon-custom-question {
+	width: 0.5712890625em;
+}
+
+.icon-custom-info {
+	width: 0.357421875em;
+}
+
+.icon-custom-exclamation {
+	width: 0.357421875em;
+}
+
+.icon-custom-eraser {
+	width: 1.0712890625em;
+}
+
+.icon-custom-puzzle-piece {
+	width: 0.9287109375em;
+}
+
+.icon-custom-microphone {
+	width: 0.642578125em;
+}
+
+.icon-custom-microphone-slash {
+	width: 0.7861328125em;
+}
+
+.icon-custom-shield {
+	width: 0.7138671875em;
+}
+
+.icon-custom-calendar-o {
+	width: 0.9287109375em;
+}
+
+.icon-custom-fire-extinguisher {
+	width: 0.7861328125em;
+}
+
+.icon-custom-rocket {
+	width: 0.9287109375em;
+}
+
+.icon-custom-html5 {
+	width: 0.7861328125em;
+}
+
+.icon-custom-unlock-alt {
+	width: 0.642578125em;
+}
+
+.icon-custom-ellipsis-h {
+	width: 0.7861328125em;
+}
+
+.icon-custom-ellipsis-v {
+	width: 0.2138671875em;
+}
+
+.icon-custom-minus-square-o {
+	width: 0.7861328125em;
+}
+
+.icon-custom-level-up {
+	width: 0.5712890625em;
+}
+
+.icon-custom-level-down {
+	width: 0.5712890625em;
+}
+
+.icon-custom-eur {
+	width: 0.5712890625em;
+}
+
+.icon-custom-gbp {
+	width: 0.5712890625em;
+}
+
+.icon-custom-dollar {
+	width: 0.5712890625em;
+}
+
+.icon-custom-inr {
+	width: 0.5009765625em;
+}
+
+.icon-custom-cny {
+	width: 0.5732421875em;
+}
+
+.icon-custom-rouble {
+	width: 0.7138671875em;
+}
+
+.icon-custom-bitcoin {
+	width: 0.7138671875em;
+}
+
+.icon-custom-sort-alpha-asc {
+	width: 0.9287109375em;
+}
+
+.icon-custom-sort-alpha-desc {
+	width: 0.9287109375em;
+}
+
+.icon-custom-thumbs-up {
+	width: 0.9287109375em;
+}
+
+.icon-custom-thumbs-down {
+	width: 0.9287109375em;
+}
+
+.icon-custom-xing {
+	width: 0.7861328125em;
+}
+
+.icon-custom-stack-overflow {
+	width: 0.7861328125em;
+}
+
+.icon-custom-bitbucket {
+	width: 0.7861328125em;
+}
+
+.icon-custom-tumblr {
+	width: 0.5712890625em;
+}
+
+.icon-custom-long-arrow-down {
+	width: 0.4287109375em;
+}
+
+.icon-custom-long-arrow-up {
+	width: 0.4287109375em;
+}
+
+.icon-custom-apple {
+	width: 0.7861328125em;
+}
+
+.icon-custom-windows {
+	width: 0.9287109375em;
+}
+
+.icon-custom-android {
+	width: 0.7861328125em;
+}
+
+.icon-custom-foursquare {
+	width: 0.7138671875em;
+}
+
+.icon-custom-female {
+	width: 0.7138671875em;
+}
+
+.icon-custom-male {
+	width: 0.5712890625em;
+}
+
+.icon-custom-bug {
+	width: 0.9287109375em;
+}
+
+.icon-custom-vk {
+	width: 1.0712890625em;
+}
+
+.icon-custom-pagelines {
+	width: 0.7861328125em;
+}
+
+.icon-custom-stack-exchange {
+	width: 0.7138671875em;
+}
+
+.icon-custom-wheelchair {
+	width: 0.9287109375em;
+}
+
+.icon-custom-try {
+	width: 0.642578125em;
+}
+
+.icon-custom-plus-square-o {
+	width: 0.7861328125em;
+}
+
+.icon-custom-space-shuttle {
+	width: 1.2138671875em;
+}
+
+.icon-custom-slack {
+	width: 0.9287109375em;
+}
+
+.icon-custom-bank {
+	width: 1.142578125em;
+}
+
+.icon-custom-graduation-cap {
+	width: 1.2861328125em;
+}
+
+.icon-custom-google {
+	width: 0.7138671875em;
+}
+
+.icon-custom-reddit {
+	width: 1.2861328125em;
+}
+
+.icon-custom-stumbleupon {
+	width: 1.0712890625em;
+}
+
+.icon-custom-digg {
+	width: 1.142578125em;
+}
+
+.icon-custom-pied-piper-alt {
+	width: 1.1376953125em;
+}
+
+.icon-custom-child {
+	width: 0.7138671875em;
+}
+
+.icon-custom-paw {
+	width: 0.9287109375em;
+}
+
+.icon-custom-spoon {
+	width: 0.4287109375em;
+}
+
+.icon-custom-cubes {
+	width: 1.2861328125em;
+}
+
+.icon-custom-behance {
+	width: 1.142578125em;
+}
+
+.icon-custom-automobile {
+	width: 1.142578125em;
+}
+
+.icon-custom-cab {
+	width: 1.142578125em;
+}
+
+.icon-custom-deviantart {
+	width: 0.5712890625em;
+}
+
+.icon-custom-soundcloud {
+	width: 1.2861328125em;
+}
+
+.icon-custom-jsfiddle {
+	width: 1.142578125em;
+}
+
+.icon-custom-tencent-weibo {
+	width: 0.7138671875em;
+}
+
+.icon-custom-wechat {
+	width: 1.142578125em;
+}
+
+.icon-custom-paragraph {
+	width: 0.7138671875em;
+}
+
+.icon-custom-newspaper-o {
+	width: 1.142578125em;
+}
+
+.icon-custom-wifi {
+	width: 1.142578125em;
+}
+
+.icon-custom-cc-visa {
+	width: 1.2861328125em;
+}
+
+.icon-custom-cc-mastercard {
+	width: 1.2861328125em;
+}
+
+.icon-custom-cc-discover {
+	width: 1.2861328125em;
+}
+
+.icon-custom-cc-amex {
+	width: 1.2861328125em;
+}
+
+.icon-custom-cc-paypal {
+	width: 1.2861328125em;
+}
+
+.icon-custom-cc-stripe {
+	width: 1.2861328125em;
+}
+
+.icon-custom-bell-slash {
+	width: 1.142578125em;
+}
+
+.icon-custom-bell-slash-o {
+	width: 1.142578125em;
+}
+
+.icon-custom-trash {
+	width: 0.7861328125em;
+}
+
+.icon-custom-area-chart {
+	width: 1.142578125em;
+}
+
+.icon-custom-line-chart {
+	width: 1.142578125em;
+}
+
+.icon-custom-toggle-off {
+	width: 1.142578125em;
+}
+
+.icon-custom-toggle-on {
+	width: 1.142578125em;
+}
+
+.icon-custom-bicycle {
+	width: 1.2861328125em;
+}
+
+.icon-custom-ioxhost {
+	width: 1.142578125em;
+}
+
+.icon-custom-angellist {
+	width: 0.7138671875em;
+}
+
+.icon-custom-cc {
+	width: 1.142578125em;
+}
+
+.icon-custom-connectdevelop {
+	width: 1.142578125em;
+}
+
+.icon-custom-leanpub {
+	width: 1.142578125em;
+}
+
+.icon-custom-sellsy {
+	width: 1.142578125em;
+}
+
+.icon-custom-simplybuilt {
+	width: 1.142578125em;
+}
+
+.icon-custom-skyatlas {
+	width: 1.142578125em;
+}
+
+.icon-custom-cart-plus {
+	width: 0.9287109375em;
+}
+
+.icon-custom-diamond {
+	width: 1.142578125em;
+}
+
+.icon-custom-ship {
+	width: 1.142578125em;
+}
+
+.icon-custom-motorcycle {
+	width: 1.2861328125em;
+}
+
+.icon-custom-venus {
+	width: 0.7138671875em;
+}
+
+.icon-custom-mercury {
+	width: 0.7138671875em;
+}
+
+.icon-custom-mars-double {
+	width: 1.0712890625em;
+}
+
+.icon-custom-venus-mars {
+	width: 1.142578125em;
+}
+
+.icon-custom-mars-stroke-v {
+	width: 0.7138671875em;
+}
+
+.icon-custom-mars-stroke-h {
+	width: 1.142578125em;
+}
+
+.icon-custom-neuter {
+	width: 0.7138671875em;
+}
+
+.icon-custom-pinterest-p {
+	width: 0.7138671875em;
+}
+
+.icon-custom-user-plus {
+	width: 1.142578125em;
+}
+
+.icon-custom-user-times {
+	width: 1.142578125em;
+}
+
+.icon-custom-bed {
+	width: 1.142578125em;
+}
+
+.icon-custom-comment-alt2-stroke {
+	width: 0.875em;
+}
+
+.icon-custom-comment-alt2-fill {
+	width: 0.875em;
+}
+
+.icon-custom-wrench3 {
+	width: 0.998046875em;
+}
+
+.icon-custom-dial {
+	width: 1.00390625em;
+}
+
+.icon-custom-share2 {
+	width: 0.998046875em;
+}
+
+.icon-custom-document-alt-stroke {
+	width: 0.75em;
+}
+
+.icon-custom-document-alt-fill {
+	width: 0.75em;
+}
+
+.icon-custom-award-fill {
+	width: 0.5em;
+}
+
+.icon-custom-award-stroke {
+	width: 0.5em;
+}
+
+.icon-custom-beaker-alt {
+	width: 0.5em;
+}
+
+.icon-custom-beaker {
+	width: 0.5em;
+}
+
+.icon-custom-lightbulb {
+	width: 0.625em;
+}
+
+.icon-custom-spin {
+	width: 0.875em;
+}
+
+.icon-custom-undo2 {
+	width: 0.998046875em;
+}
+
+.icon-custom-transfer {
+	width: 0.998046875em;
+}
+
+.icon-custom-move-vertical {
+	width: 0.375em;
+}
+
+.icon-custom-move-vertical-alt1 {
+	width: 0.375em;
+}
+
+.icon-custom-microphone2 {
+	width: 0.75em;
+}
+
+.icon-custom-play3 {
+	width: 0.75em;
+}
+
+.icon-custom-pause3 {
+	width: 0.75em;
+}
+
+.icon-custom-iphone {
+	width: 0.75em;
+}
+
+.icon-custom-ampersand2 {
+	width: 0.58203125em;
+}
+
+.icon-custom-info3 {
+	width: 0.5em;
+}
+
+.icon-custom-question-mark {
+	width: 0.5em;
+}
+
+.icon-custom-pilcrow {
+	width: 0.75em;
+}
+
+.icon-custom-hash {
+	width: 0.875em;
+}
+
+.icon-custom-list3 {
+	width: 1.142578125em;
+}
+
+.icon-custom-list-nested {
+	width: 1.142578125em;
+}
+
+.icon-custom-book2 {
+	width: 0.875em;
+}
+
+.icon-custom-pen-alt2 {
+	width: 0.998046875em;
+}
+
+.icon-custom-brush {
+	width: 0.998046875em;
+}
+
+.icon-custom-brush-alt {
+	width: 0.998046875em;
+}
+
+.icon-custom-eyedropper2 {
+	width: 0.998046875em;
+}
+
+.icon-custom-layers-alt {
+	width: 0.998046875em;
+}
+
+.icon-custom-layers {
+	width: 0.998046875em;
+}
+
+.icon-custom-chart2 {
+	width: 0.998046875em;
+}
+
+.icon-custom-chart-alt {
+	width: 0.9375em;
+}
+
+.icon-custom-bars-alt {
+	width: 0.875em;
+}
+
+.icon-custom-user4 {
+	width: 0.75em;
+}
+
+.icon-custom-lock-stroke {
+	width: 0.75em;
+}
+
+.icon-custom-lock-fill {
+	width: 0.75em;
+}
+
+.icon-custom-unlock-stroke {
+	width: 0.75em;
+}
+
+.icon-custom-unlock-fill {
+	width: 0.75em;
+}
+
+.icon-custom-sun-stroke {
+	width: 0.998046875em;
+}
+
+.icon-custom-sun-fill {
+	width: 0.998046875em;
+}
+
+.icon-custom-rain {
+	width: 0.998046875em;
+}
+
+.icon-custom-umbrella2 {
+	width: 0.998046875em;
+}
+
+.icon-custom-map-pin-stroke {
+	width: 0.625em;
+}
+
+.icon-custom-map-pin-fill {
+	width: 0.625em;
+}
+
+.icon-custom-map-pin-alt {
+	width: 0.5em;
+}
+
+.icon-custom-download2 {
+	width: 0.75em;
+}
+
+.icon-custom-upload2 {
+	width: 0.75em;
+}
+
+.icon-custom-fork {
+	width: 0.875em;
+}
+
+.icon-custom-alignment-align {
+	width: 0.9375em;
+}
+
+.icon-custom-alignment-aligned-to {
+	width: 0.9375em;
+}
+
+.icon-custom-alignment-unalign {
+	width: 0.875em;
+}
+
+.icon-custom-arrow-down3 {
+	width: 0.625em;
+}
+
+.icon-custom-arrow-left3 {
+	width: 0.625em;
+}
+
+.icon-custom-arrow-right3 {
+	width: 0.625em;
+}
+
+.icon-custom-arrow-small-down {
+	width: 0.375em;
+}
+
+.icon-custom-arrow-small-left {
+	width: 0.375em;
+}
+
+.icon-custom-arrow-small-right {
+	width: 0.375em;
+}
+
+.icon-custom-arrow-small-up {
+	width: 0.375em;
+}
+
+.icon-custom-arrow-up3 {
+	width: 0.625em;
+}
+
+.icon-custom-bookmark4 {
+	width: 0.375em;
+}
+
+.icon-custom-broadcast {
+	width: 0.875em;
+}
+
+.icon-custom-browser {
+	width: 0.875em;
+}
+
+.icon-custom-bug3 {
+	width: 0.7158203125em;
+}
+
+.icon-custom-check2 {
+	width: 0.75em;
+}
+
+.icon-custom-checklist {
+	width: 0.7470703125em;
+}
+
+.icon-custom-chevron-down2 {
+	width: 0.625em;
+}
+
+.icon-custom-chevron-left2 {
+	width: 0.4375em;
+}
+
+.icon-custom-chevron-right2 {
+	width: 0.4375em;
+}
+
+.icon-custom-chevron-up2 {
+	width: 0.625em;
+}
+
+.icon-custom-circle-slash {
+	width: 0.625em;
+}
+
+.icon-custom-clippy {
+	width: 0.875em;
+}
+
+.icon-custom-clock3 {
+	width: 0.875em;
+}
+
+.icon-custom-code3 {
+	width: 0.875em;
+}
+
+.icon-custom-color-mode {
+	width: 0.75em;
+}
+
+.icon-custom-comment4 {
+	width: 0.875em;
+}
+
+.icon-custom-comment-discussion {
+	width: 0.875em;
+}
+
+.icon-custom-dash {
+	width: 0.5em;
+}
+
+.icon-custom-dashboard2 {
+	width: 0.8125em;
+}
+
+.icon-custom-database3 {
+	width: 0.75em;
+}
+
+.icon-custom-device-mobile {
+	width: 0.625em;
+}
+
+.icon-custom-diff {
+	width: 0.875em;
+}
+
+.icon-custom-diff-added {
+	width: 0.875em;
+}
+
+.icon-custom-diff-ignored {
+	width: 0.875em;
+}
+
+.icon-custom-diff-modified {
+	width: 0.875em;
+}
+
+.icon-custom-diff-removed {
+	width: 0.875em;
+}
+
+.icon-custom-diff-renamed {
+	width: 0.875em;
+}
+
+.icon-custom-ellipsis {
+	width: 0.75em;
+}
+
+.icon-custom-file-binary {
+	width: 0.75em;
+}
+
+.icon-custom-file-code {
+	width: 0.75em;
+}
+
+.icon-custom-file-directory {
+	width: 0.875em;
+}
+
+.icon-custom-file-media {
+	width: 0.75em;
+}
+
+.icon-custom-file-pdf {
+	width: 0.75em;
+}
+
+.icon-custom-file-submodule {
+	width: 0.875em;
+}
+
+.icon-custom-file-symlink-directory {
+	width: 0.875em;
+}
+
+.icon-custom-file-symlink-file {
+	width: 0.75em;
+}
+
+.icon-custom-file-text2 {
+	width: 0.75em;
+}
+
+.icon-custom-file-zip {
+	width: 0.75em;
+}
+
+.icon-custom-fold {
+	width: 0.875em;
+}
+
+.icon-custom-gear2 {
+	width: 0.875em;
+}
+
+.icon-custom-gift3 {
+	width: 0.875em;
+}
+
+.icon-custom-gist {
+	width: 0.75em;
+}
+
+.icon-custom-gist-secret {
+	width: 0.875em;
+}
+
+.icon-custom-git-branch {
+	width: 0.625em;
+}
+
+.icon-custom-git-commit {
+	width: 0.875em;
+}
+
+.icon-custom-git-compare {
+	width: 0.875em;
+}
+
+.icon-custom-git-merge {
+	width: 0.75em;
+}
+
+.icon-custom-git-pull-request {
+	width: 0.75em;
+}
+
+.icon-custom-heart3 {
+	width: 0.75em;
+}
+
+.icon-custom-history2 {
+	width: 0.875em;
+}
+
+.icon-custom-horizontal-rule {
+	width: 0.6240234375em;
+}
+
+.icon-custom-hourglass {
+	width: 0.75em;
+}
+
+.icon-custom-inbox3 {
+	width: 0.75em;
+}
+
+.icon-custom-info4 {
+	width: 0.875em;
+}
+
+.icon-custom-issue-opened {
+	width: 0.875em;
+}
+
+.icon-custom-issue-reopened {
+	width: 0.875em;
+}
+
+.icon-custom-jersey {
+	width: 0.875em;
+}
+
+.icon-custom-jump-down {
+	width: 0.75em;
+}
+
+.icon-custom-jump-left {
+	width: 0.625em;
+}
+
+.icon-custom-jump-right {
+	width: 0.625em;
+}
+
+.icon-custom-jump-up {
+	width: 0.75em;
+}
+
+.icon-custom-key3 {
+	width: 0.875em;
+}
+
+.icon-custom-link-external {
+	width: 0.75em;
+}
+
+.icon-custom-list-ordered {
+	width: 0.75em;
+}
+
+.icon-custom-list-unordered {
+	width: 0.75em;
+}
+
+.icon-custom-location3 {
+	width: 0.625em;
+}
+
+.icon-custom-lock2 {
+	width: 0.75em;
+}
+
+.icon-custom-logo-github {
+	width: 2.7890625em;
+}
+
+.icon-custom-mail2 {
+	width: 0.875em;
+}
+
+.icon-custom-mail-read {
+	width: 0.875em;
+}
+
+.icon-custom-mail-reply2 {
+	width: 0.75em;
+}
+
+.icon-custom-mention {
+	width: 0.8125em;
+}
+
+.icon-custom-microscope {
+	width: 0.75em;
+}
+
+.icon-custom-milestone {
+	width: 0.8125em;
+}
+
+.icon-custom-move-down {
+	width: 0.625em;
+}
+
+.icon-custom-move-up {
+	width: 0.625em;
+}
+
+.icon-custom-mute {
+	width: 0.875em;
+}
+
+.icon-custom-organization {
+	width: 0.875em;
+}
+
+.icon-custom-paintcan {
+	width: 0.75em;
+}
+
+.icon-custom-pencil3 {
+	width: 0.875em;
+}
+
+.icon-custom-person {
+	width: 0.5em;
+}
+
+.icon-custom-pin2 {
+	width: 0.5068359375em;
+}
+
+.icon-custom-playback-fast-forward {
+	width: 0.75em;
+}
+
+.icon-custom-playback-pause {
+	width: 0.5em;
+}
+
+.icon-custom-playback-play {
+	width: 0.5em;
+}
+
+.icon-custom-playback-rewind {
+	width: 0.75em;
+}
+
+.icon-custom-plus4 {
+	width: 0.625em;
+}
+
+.icon-custom-podium {
+	width: 0.75em;
+}
+
+.icon-custom-primitive-dot {
+	width: 0.4990234375em;
+}
+
+.icon-custom-primitive-square {
+	width: 0.5em;
+}
+
+.icon-custom-pulse {
+	width: 0.875em;
+}
+
+.icon-custom-quote {
+	width: 0.625em;
+}
+
+.icon-custom-repo {
+	width: 0.75em;
+}
+
+.icon-custom-repo-force-push {
+	width: 0.7490234375em;
+}
+
+.icon-custom-repo-forked {
+	width: 0.75em;
+}
+
+.icon-custom-repo-push {
+	width: 0.75em;
+}
+
+.icon-custom-rss3 {
+	width: 0.75em;
+}
+
+.icon-custom-screen-full {
+	width: 0.8740234375em;
+}
+
+.icon-custom-screen-normal {
+	width: 0.875em;
+}
+
+.icon-custom-search3 {
+	width: 0.9501953125em;
+}
+
+.icon-custom-server2 {
+	width: 0.75em;
+}
+
+.icon-custom-settings {
+	width: 0.875em;
+}
+
+.icon-custom-sign-in2 {
+	width: 0.875em;
+}
+
+.icon-custom-star5 {
+	width: 0.875em;
+}
+
+.icon-custom-steps {
+	width: 0.625em;
+}
+
+.icon-custom-sync {
+	width: 0.75em;
+}
+
+.icon-custom-tag3 {
+	width: 0.875em;
+}
+
+.icon-custom-telescope {
+	width: 0.9072265625em;
+}
+
+.icon-custom-terminal2 {
+	width: 0.875em;
+}
+
+.icon-custom-three-bars {
+	width: 0.75em;
+}
+
+.icon-custom-trashcan2 {
+	width: 0.75em;
+}
+
+.icon-custom-triangle-down {
+	width: 0.7490234375em;
+}
+
+.icon-custom-triangle-left {
+	width: 0.3740234375em;
+}
+
+.icon-custom-triangle-right {
+	width: 0.3740234375em;
+}
+
+.icon-custom-triangle-up {
+	width: 0.7490234375em;
+}
+
+.icon-custom-unfold {
+	width: 0.875em;
+}
+
+.icon-custom-unmute {
+	width: 0.875em;
+}
+
+.icon-custom-versions {
+	width: 0.875em;
+}
+
+.icon-custom-x2 {
+	width: 0.625em;
+}
+
+.icon-custom-zap {
+	width: 0.625em;
+}
+
+.icon-custom-images {
+	width: 1.125em;
+}
+
+.icon-custom-connection {
+	width: 1.25em;
+}
+
+.icon-custom-books {
+	width: 1.125em;
+}
+
+.icon-custom-library {
+	width: 1.0625em;
+}
+
+.icon-custom-price-tags {
+	width: 1.25em;
+}
+
+.icon-custom-history3 {
+	width: 1.0625em;
+}
+
+.icon-custom-keyboard3 {
+	width: 1.125em;
+}
+
+.icon-custom-bubbles {
+	width: 1.125em;
+}
+
+.icon-custom-bubbles2 {
+	width: 1.125em;
+}
+
+.icon-custom-bubbles3 {
+	width: 1.125em;
+}
+
+.icon-custom-bubbles4 {
+	width: 1.125em;
+}
+
+.icon-custom-users3 {
+	width: 1.125em;
+}
+
+.icon-custom-menu2 {
+	width: 1.375em;
+}
+
+.icon-custom-menu3 {
+	width: 1.375em;
+}
+
+.icon-custom-menu4 {
+	width: 1.375em;
+}
+
+.icon-custom-volume-high {
+	width: 1.0625em;
+}
+
+.icon-custom-embed2 {
+	width: 1.25em;
+}
+
+.icon-custom-youtube4 {
+	width: 2.5087890625em;
+}
+
+.icon-custom-pictures2 {
+	width: 1.015625em;
+}
+
+.icon-custom-time {
+	width: 1.21875em;
+}
+
+.icon-custom-eye6 {
+	width: 1.09375em;
+}
+
+.icon-custom-cloud5 {
+	width: 1.09375em;
+}
+
+.icon-custom-upload5 {
+	width: 1.09375em;
+}
+
+.icon-custom-download5 {
+	width: 1.09375em;
+}
+
+.icon-custom-folder4 {
+	width: 1.091796875em;
+}
+
+.icon-custom-gamepad2 {
+	width: 1.029296875em;
+}
+
+.icon-custom-graduate {
+	width: 1.31640625em;
+}
+
+.icon-custom-football {
+	width: 1.017578125em;
+}
+
+.icon-custom-dglasses {
+	width: 1.40625em;
+}
+
+.icon-custom-microwave {
+	width: 1.125em;
+}
+
+.icon-custom-satellite {
+	width: 1.0390625em;
+}
+
+.icon-custom-batman {
+	width: 1.21875em;
+}
+
+.icon-custom-spaceinvaders {
+	width: 1.03125em;
+}
+
+.icon-custom-bomb2 {
+	width: 1.140625em;
+}
+
+.icon-custom-comments2 {
+	width: 1.07421875em;
+}
+
+.icon-custom-volume5 {
+	width: 1.1171875em;
+}
+
+.icon-custom-dollar3 {
+	width: 1.1875em;
+}
+
+.icon-custom-cloudy {
+	width: 1.173828125em;
+}
+
+.icon-custom-cloudy2 {
+	width: 1.099609375em;
+}
+
+.icon-custom-bike {
+	width: 1.171875em;
+}
+
+.icon-custom-bus2 {
+	width: 1.03125em;
+}
+
+.icon-custom-ticket3 {
+	width: 1.25em;
+}
+
+.icon-custom-ticket4 {
+	width: 1.25em;
+}
+
+.icon-custom-ticket5 {
+	width: 1.21875em;
+}
+
+.icon-custom-radio2 {
+	width: 1.03125em;
+}
+
+.icon-custom-navigation {
+	width: 1.03125em;
+}

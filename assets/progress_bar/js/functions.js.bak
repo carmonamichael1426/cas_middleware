@@ -1,0 +1,2874 @@
+/* ========================= CA MODULE ========================= */
+
+function ocDetails()
+{
+    BootstrapDialog.show({
+		title: 'Outstanding Credit Ledger',
+    	type: BootstrapDialog.TYPE_SUCCESS,
+		size: BootstrapDialog.SIZE_WIDE,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../employee/template/CashAdvance/modal_OutCredit.php'
+        },
+
+		buttons: [{
+				label: 'Close',
+				icon: 'glyphicon glyphicon-remove',
+				cssClass: "btn-sm btn-danger",
+				action: function(dialog) {
+					dialog.close();
+				}
+			}]
+    });
+}
+
+function regDetails()
+{
+	BootstrapDialog.show({
+		title: 'Regular CA Ledger',
+    	type: BootstrapDialog.TYPE_SUCCESS,
+		size: BootstrapDialog.SIZE_WIDE,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../employee/template/CashAdvance/modal_Regular.php'
+        },
+		
+		buttons: [{
+				label: 'Close',
+				icon: 'glyphicon glyphicon-remove',
+				cssClass: "btn-sm btn-danger",
+				action: function(dialog) {
+					dialog.close();
+				}
+			}]
+    });
+}
+
+function specDetails()
+{
+	BootstrapDialog.show({
+		title: 'Special CA Ledger',
+    	type: BootstrapDialog.TYPE_SUCCESS,
+		size: BootstrapDialog.SIZE_WIDE,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../employee/template/CashAdvance/modal_Special.php'
+        },
+		
+		buttons: [{
+				label: 'Close',
+				icon: 'glyphicon glyphicon-remove',
+				cssClass: "btn-sm btn-danger",
+				action: function(dialog) {
+					dialog.close();
+				}
+			}]
+    });
+}
+
+function caPending(nameoff)
+{
+	BootstrapDialog.show({
+		title: 'Pending Cash Advance Details',
+    	type: BootstrapDialog.TYPE_DEFAULT,
+		size: BootstrapDialog.SIZE_NORMAL,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../employee/template/CashAdvance/modalca_Pending.php?getdata='+nameoff
+        }
+    });
+}
+
+function empReqDelete($id){
+
+	var pen_careq_id = $id;
+	
+	BootstrapDialog.show({
+	type: BootstrapDialog.TYPE_DANGER,
+	size: BootstrapDialog.SIZE_SMALL,
+	title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+	message: '<center>Are you sure you want to delete your request? </center>',
+	closable: false,
+	buttons: [{
+		label: 'Yes',
+		cssClass: 'btn-success btn-sm',
+		icon: 'glyphicon glyphicon-ok',
+		action: function(dialog2){
+			var $button = this; // 'this' here is a jQuery object that wrapping the <button> DOM element.
+			$button.disable();
+			$button.spin();
+			$.ajax({
+				type:"POST",
+				url:"template/CashAdvance/delete_request.php?request=deleteReq",
+				data:{pen_careq_id:pen_careq_id},
+				success:function(data){
+					if(data == "Ok"){
+						var dialog = new BootstrapDialog({
+							size: BootstrapDialog.SIZE_SMALL,
+							message: function(dialogRef){
+								var $message = $('<h3 class="text-center text-success">Successfully Deleted!</h3>');
+								var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+								$button.on('click', {dialogRef: dialogRef}, function(event){
+									event.data.dialogRef.close();
+									window.location.reload();
+								});
+								$message.append($button);
+						
+								return $message;
+							},
+							closable: false
+						});
+						dialog.realize();
+						dialog.getModalHeader().hide();
+						dialog.getModalFooter().hide();
+						dialog.getModalBody().css('background-color', '#FFF');
+						dialog.getModalBody().css('color', '#F00');
+						dialog.open();
+					}
+					else {
+						alert(data);
+					}
+				}
+			});
+		}
+	},{
+		label: 'No',
+		cssClass: 'btn-danger btn-sm',
+		icon: 'glyphicon glyphicon-remove',
+		action: function(dialog2){
+			dialog2.close();
+		}
+	}]
+});
+
+}
+
+function caReviewed(nameoff)
+{
+	BootstrapDialog.show({
+		title: 'Reviewed Cash Advance Details',
+    	type: BootstrapDialog.TYPE_DEFAULT,
+		size: BootstrapDialog.SIZE_NORMAL,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../employee/template/CashAdvance/modalca_Reviewed.php?getdata='+nameoff
+        }
+    });
+}
+
+function caApproved(nameoff)
+{
+	BootstrapDialog.show({
+		title: 'Approved Cash Advance Details',
+    	type: BootstrapDialog.TYPE_DEFAULT,
+		size: BootstrapDialog.SIZE_NORMAL,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../employee/template/CashAdvance/modalca_Approved.php?getdata='+nameoff
+        }
+    });
+}
+
+function caDisapproved(nameoff)
+{
+	BootstrapDialog.show({
+		title: 'Approved Cash Advance Details',
+    	type: BootstrapDialog.TYPE_DEFAULT,
+		size: BootstrapDialog.SIZE_NORMAL,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../employee/template/CashAdvance/modalca_Disapproved.php?getdata='+nameoff
+        }
+    });
+}
+
+function saveRequest()
+{
+    var caType = $('[name="caType"]:checked').val();
+    var amtFigures = $('[name="amtFigures"]').val().trim();
+    var amtWords = $('[name="amtWords"]').val();
+	var empRemarks = $('[name="empRemarks"]').val();
+	
+	var greaterregcacon = $('[name="greaterregcacon"]').val();
+	var greaterequalspeccapccon1 = $('[name="greaterequalspeccapccon1"]').val();
+	var lesserequalspeccaccon2 = $('[name="lesserequalspeccaccon2"]').val();
+	
+	var greaterRegCaCon = $('[name="greaterRegCaCon"]').val();
+	var greaterSpecCaPCCon = $('[name="greaterSpecCaPCCon"]').val();
+	var greaterSpecCaCCon = $('[name="greaterSpecCaCCon"]').val();
+	
+	var greaterregcareg = $('[name="greaterregcareg"]').val();
+	var greaterequalspeccapcreg1 = $('[name="greaterequalspeccapcreg1"]').val();
+	var lesserequalspeccacreg2 = $('[name="lesserequalspeccacreg2"]').val();
+	
+	var greaterRegCaReg = $('[name="greaterRegCaReg"]').val();
+	var greaterSpecCaPCReg = $('[name="greaterSpecCaPCReg"]').val();
+	var greaterSpecCaCReg = $('[name="greaterSpecCaCReg"]').val();
+	
+	var aboveminregcacon = $('[name="aboveminregcacon"]').val();
+	var aboveminspeccapccon = $('[name="aboveminspeccapccon"]').val();
+
+	var aboveminregcareg = $('[name="aboveminregcareg"]').val();
+	var aboveminspeccapcreg = $('[name="aboveminspeccapcreg"]').val();
+	
+
+	
+    if(caType && empRemarks && amtFigures != "0.00"){
+	
+		$.ajax({
+			type: "POST",
+			url: "template/CashAdvance/save_request.php?request=checkAmount",
+			data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+			success: function(data){
+				if(data == "greaterregcacon"){                                                     // if above 1K for contractual Regular CA
+						 var dialog = new BootstrapDialog({
+							size: BootstrapDialog.SIZE_NORMAL,
+							message: function(dialogRef){
+								var $message = $("<h4 class='text-center text-danger'>Your request is above P"+greaterregcacon+" and this will be forwarded to Ma'am Nelita Fuertes for approval after reviewed by the Supervisor.</h4>");
+								var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+								$button.on('click', {dialogRef: dialogRef}, function(event){
+									BootstrapDialog.show({
+									title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+									type: BootstrapDialog.TYPE_DANGER,
+									size: BootstrapDialog.SIZE_SMALL,
+									closable:false,
+									draggable:true,
+									message: 'Are you sure to submit this request?',
+									buttons: [{
+										label: 'Yes',
+										icon: 'glyphicon glyphicon-ok',
+										cssClass: "btn-sm btn-success",
+										action: function(dialog) {
+											   $.ajax({
+													type: "POST",
+													url: "template/CashAdvance/save_request.php?request=saveCA",
+													data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+													success: function(data){
+														data = data.trim();
+														if(data == "Ok"){
+															var dialog = new BootstrapDialog({
+																size: BootstrapDialog.SIZE_SMALL,
+																message: function(dialogRef){
+																	var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+																	var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																	$button.on('click', {dialogRef: dialogRef}, function(event){
+																		event.data.dialogRef.close();
+																		window.location.reload();
+																	});
+																	$message.append($button);
+															
+																	return $message;
+																},
+																closable: false
+															});
+															dialog.realize();
+															dialog.getModalHeader().hide();
+															dialog.getModalFooter().hide();
+															dialog.getModalBody().css('background-color', '#FFF');
+															dialog.getModalBody().css('color', '#F00');
+															dialog.open();
+														}else {
+									var dialog = new BootstrapDialog({
+                                        size: BootstrapDialog.SIZE_SMALL,
+                                        message: function(dialogRef){
+                                            var $message = $('<h3 class="text-center text-danger">Duplicate<br>Employee ID(s) :<br><br>'+data+'</h3>');
+                                            var $button = $('<br><br><button class="btn btn-primary btn-md"><i class="glyphicon glyphicon-ok">&nbsp;OK</i></button>');
+                                            $button.on('click', {dialogRef: dialogRef}, function(event){
+                                                // event.data.dialogRef.close();
+                                                 BootstrapDialog.closeAll();
+                                                // window.location.reload();
+                                            });
+                                            $message.append($button);
+                                    
+                                            return $message;
+                                        },
+                                        closable: false
+                                    });
+                                    dialog.realize();
+                                    dialog.getModalHeader().hide();
+                                    dialog.getModalFooter().hide();
+                                    dialog.getModalBody().css('background-color', '#FFF');
+                                    dialog.getModalBody().css('color', '#F00');
+                                    dialog.open();
+								}
+												}
+										    });
+										}
+									}, {
+										label: 'No',
+										icon: 'glyphicon glyphicon-ban-circle',
+										cssClass: "btn-sm btn-danger",
+										action: function(dialog) {
+											dialog.close();
+											event.data.dialogRef.close();
+										}
+									}]
+								});
+								}); 
+								$message.append($button);
+						
+								return $message;
+							},
+							closable: false
+						});
+						dialog.realize();
+						dialog.getModalHeader().hide();
+						dialog.getModalFooter().hide();
+						dialog.getModalBody().css('background-color', '#FFF');
+						dialog.getModalBody().css('color', '#F00');
+						dialog.open();
+			
+				}
+				else if(data == "greaterRegCaCon"){                                       // if above 2K credit limit for contractual Regular CA
+								
+						 var dialog = new BootstrapDialog({
+							size: BootstrapDialog.SIZE_SMALL,
+							message: function(dialogRef){
+								var $message = $('<h3 class="text-center text-danger">Over the limit!<br>Your maximum limit is only P'+greaterRegCaCon+'</h3>');
+								var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+								$button.on('click', {dialogRef: dialogRef}, function(event){
+									event.data.dialogRef.close();
+								});
+								$message.append($button);
+						
+								return $message;
+							},
+							closable: false
+						});
+						dialog.realize();
+						dialog.getModalHeader().hide();
+						dialog.getModalFooter().hide();
+						dialog.getModalBody().css('background-color', '#FFF');
+						dialog.getModalBody().css('color', '#F00');
+						dialog.open();
+			
+				}
+				else if(data == "lesserequalspeccapccon1"){                           // if 4,999.00 and below for contractual Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is subject for final approval of Ma'am Nelita Fuertes after reviewed by the Supervisor and the releasing of money will be taken care of by the General Manager Secretary.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										BootstrapDialog.show({
+										title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										closable:false,
+										draggable:true,
+										message: 'Are you sure to submit this request?',
+										buttons: [{
+											label: 'Yes',
+											icon: 'glyphicon glyphicon-ok',
+											cssClass: "btn-sm btn-success",
+											action: function(dialog) {
+												   $.ajax({
+														type: "POST",
+														url: "template/CashAdvance/save_request.php?request=saveCA",
+														data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+														success: function(data){
+															data = data.trim();
+															if(data == "Ok"){
+																var dialog = new BootstrapDialog({
+																	size: BootstrapDialog.SIZE_SMALL,
+																	message: function(dialogRef){
+																		var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+																		var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																		$button.on('click', {dialogRef: dialogRef}, function(event){
+																			event.data.dialogRef.close();
+																			window.location.reload();
+																		});
+																		$message.append($button);
+																
+																		return $message;
+																	},
+																	closable: false
+																});
+																dialog.realize();
+																dialog.getModalHeader().hide();
+																dialog.getModalFooter().hide();
+																dialog.getModalBody().css('background-color', '#FFF');
+																dialog.getModalBody().css('color', '#F00');
+																dialog.open();
+															}
+													}
+												});
+											}
+										}, {
+											label: 'No',
+											icon: 'glyphicon glyphicon-ban-circle',
+											cssClass: "btn-sm btn-danger",
+											action: function(dialog) {
+												event.data.dialogRef.close();
+												dialog.close();
+											}
+										}]
+									});
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterequalspeccaccon1"){                     // if above 4,999.00 for contractual Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is above P"+greaterequalspeccapccon1+", kindly change your request to Special Cash Advance - Cheque.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "notallowedconPC"){                                     // not allowed amount for contractual Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $("<h3 class='text-center text-danger'>Not allowed amount!</h3>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterSpecCaPCCon"){                              // if above 50K credit limit for contractual Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h3 class="text-center text-danger">Over the limit!<br>Your maximum limit is only P'+greaterSpecCaPCCon+'</h3>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterequalspeccaccon2"){                          // if 5K and above for contractual Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is subject for final approval of Ma'am Nelita Fuertes after reviewed by the Supervisor and a cheque will be issued by the Corporate Accounting.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										BootstrapDialog.show({
+										title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										closable:false,
+										draggable:true,
+										message: 'Are you sure to submit this request?',
+										buttons: [{
+											label: 'Yes',
+											icon: 'glyphicon glyphicon-ok',
+											cssClass: "btn-sm btn-success",
+											action: function(dialog) {
+												   $.ajax({
+														type: "POST",
+														url: "template/CashAdvance/save_request.php?request=saveCA",
+														data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+														success: function(data){
+															data = data.trim();
+															if(data == "Ok"){
+																var dialog = new BootstrapDialog({
+																	size: BootstrapDialog.SIZE_SMALL,
+																	message: function(dialogRef){
+																		var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+																		var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																		$button.on('click', {dialogRef: dialogRef}, function(event){
+																			event.data.dialogRef.close();
+																			window.location.reload();
+																		});
+																		$message.append($button);
+																
+																		return $message;
+																	},
+																	closable: false
+																});
+																dialog.realize();
+																dialog.getModalHeader().hide();
+																dialog.getModalFooter().hide();
+																dialog.getModalBody().css('background-color', '#FFF');
+																dialog.getModalBody().css('color', '#F00');
+																dialog.open();
+															}
+													}
+												});
+											}
+										}, {
+											label: 'No',
+											icon: 'glyphicon glyphicon-ban-circle',
+											cssClass: "btn-sm btn-danger",
+											action: function(dialog) {
+												dialog.close();
+												event.data.dialogRef.close();
+											}
+										}]
+									});
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "lesserequalspeccapccon2"){                // if below 5K for contractual Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is below P"+lesserequalspeccaccon2+", kindly change your request to Special Cash Advance - Petty Cash.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "notallowedconC"){                                    // not allowed amount for contractual Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $("<h3 class='text-center text-danger'>Not allowed amount!</h3>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterSpecCaCCon"){                             // if above 50K credit limit for contractual Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h3 class="text-center text-danger">Over the limit!<br>Your maximum limit is only P'+greaterSpecCaCCon+'</h3>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterregcareg"){                        // if above 2.5K for regular Regular CA
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is above P"+greaterregcareg+" and this will be forwarded to Ma'am Nelita Fuertes for approval after reviewed by the Supervisor.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										BootstrapDialog.show({
+										title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										closable:false,
+										draggable:true,
+										message: 'Are you sure to submit this request?',
+										buttons: [{
+											label: 'Yes',
+											icon: 'glyphicon glyphicon-ok',
+											cssClass: "btn-sm btn-success",
+											action: function(dialog) {
+												   $.ajax({
+														type: "POST",
+														url: "template/CashAdvance/save_request.php?request=saveCA",
+														data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+														success: function(data){
+															data = data.trim();
+															if(data == "Ok"){
+																var dialog = new BootstrapDialog({
+																	size: BootstrapDialog.SIZE_SMALL,
+																	message: function(dialogRef){
+																		var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+																		var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																		$button.on('click', {dialogRef: dialogRef}, function(event){
+																			event.data.dialogRef.close();
+																			window.location.reload();
+																		});
+																		$message.append($button);
+																
+																		return $message;
+																	},
+																	closable: false
+																});
+																dialog.realize();
+																dialog.getModalHeader().hide();
+																dialog.getModalFooter().hide();
+																dialog.getModalBody().css('background-color', '#FFF');
+																dialog.getModalBody().css('color', '#F00');
+																dialog.open();
+															}
+													}
+												});
+											}
+										}, {
+											label: 'No',
+											icon: 'glyphicon glyphicon-ban-circle',
+											cssClass: "btn-sm btn-danger",
+											action: function(dialog) {
+												dialog.close();
+												event.data.dialogRef.close();
+											}
+										}]
+									});
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterRegCaReg"){                                 // if above 20K credit limit for regular Regular CA
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h3 class="text-center text-danger">Over the limit!<br>Your maximum limit is only P'+greaterRegCaReg+'</h3>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "lesserequalspeccapcreg1"){                     // if 4,999.00 and below for regular Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is subject for final approval of Ma'am Nelita Fuertes after reviewed by the Supervisor and the releasing of money will be taken care of by the General Manager Secretary.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										BootstrapDialog.show({
+										title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										closable:false,
+										draggable:true,
+										message: 'Are you sure to submit this request?',
+										buttons: [{
+											label: 'Yes',
+											icon: 'glyphicon glyphicon-ok',
+											cssClass: "btn-sm btn-success",
+											action: function(dialog) {
+												   $.ajax({
+														type: "POST",
+														url: "template/CashAdvance/save_request.php?request=saveCA",
+														data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+														success: function(data){
+															data = data.trim();
+															if(data == "Ok"){
+																var dialog = new BootstrapDialog({
+																	size: BootstrapDialog.SIZE_SMALL,
+																	message: function(dialogRef){
+																		var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+																		var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																		$button.on('click', {dialogRef: dialogRef}, function(event){
+																			event.data.dialogRef.close();
+																			window.location.reload();
+																		});
+																		$message.append($button);
+																
+																		return $message;
+																	},
+																	closable: false
+																});
+																dialog.realize();
+																dialog.getModalHeader().hide();
+																dialog.getModalFooter().hide();
+																dialog.getModalBody().css('background-color', '#FFF');
+																dialog.getModalBody().css('color', '#F00');
+																dialog.open();
+															}
+													}
+												});
+											}
+										}, {
+											label: 'No',
+											icon: 'glyphicon glyphicon-ban-circle',
+											cssClass: "btn-sm btn-danger",
+											action: function(dialog) {
+												event.data.dialogRef.close();
+												dialog.close();
+											}
+										}]
+									});
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterequalspeccacreg1"){                     // if above 4,999.00 for regular Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is above P"+greaterequalspeccapcreg1+", kindly change your request to Special Cash Advance - Cheque.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "notallowedregPC"){                                    // not allowed amount for regular Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $("<h3 class='text-center text-danger'>Not allowed amount!</h3>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterSpecCaPCReg"){                             // if above 50K credit limit for regular Special CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h3 class="text-center text-danger">Over the limit!<br>Your maximum limit is only P'+greaterSpecCaPCReg+'</h3>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterequalspeccacreg2"){                           // if 5K and above for regular Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is subject for final approval of Ma'am Nelita Fuertes after reviewed by the Supervisor and a cheque will be issued by the Corporate Accounting.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										BootstrapDialog.show({
+										title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										closable:false,
+										draggable:true,
+										message: 'Are you sure to submit this request?',
+										buttons: [{
+											label: 'Yes',
+											icon: 'glyphicon glyphicon-ok',
+											cssClass: "btn-sm btn-success",
+											action: function(dialog) {
+												   $.ajax({
+														type: "POST",
+														url: "template/CashAdvance/save_request.php?request=saveCA",
+														data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+														success: function(data){
+															data = data.trim();
+															if(data == "Ok"){
+																var dialog = new BootstrapDialog({
+																	size: BootstrapDialog.SIZE_SMALL,
+																	message: function(dialogRef){
+																		var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+																		var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																		$button.on('click', {dialogRef: dialogRef}, function(event){
+																			event.data.dialogRef.close();
+																			window.location.reload();
+																		});
+																		$message.append($button);
+																
+																		return $message;
+																	},
+																	closable: false
+																});
+																dialog.realize();
+																dialog.getModalHeader().hide();
+																dialog.getModalFooter().hide();
+																dialog.getModalBody().css('background-color', '#FFF');
+																dialog.getModalBody().css('color', '#F00');
+																dialog.open();
+															}
+													}
+												});
+											}
+										}, {
+											label: 'No',
+											icon: 'glyphicon glyphicon-ban-circle',
+											cssClass: "btn-sm btn-danger",
+											action: function(dialog) {
+												dialog.close();
+												event.data.dialogRef.close();
+											}
+										}]
+									});
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "lesserequalspeccapcreg2"){                     // if below 5K for regular Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_NORMAL,
+								message: function(dialogRef){
+									var $message = $("<h4 class='text-center text-danger'>Your request is below P"+lesserequalspeccacreg2+", kindly change your request to Special Cash Advance - Petty Cash.</h4>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "notallowedregC"){                                         // not allowed amount for regular Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $("<h3 class='text-center text-danger'>Not allowed amount!</h3>");
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "greaterSpecCaCReg"){                                   // if above 50K credit limit for regular Special CA Cheque
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h3 class="text-center text-danger">Over the limit!<br>Your maximum limit is only P'+greaterSpecCaCReg+'</h3>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "aboveminregcacon"){                                   // if equal and below minimum amount - Contractual Employee Regular CA
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h4 class="text-center text-danger">Not allowed amount!<br>Must be above P'+aboveminregcacon+'</h4>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "aboveminspeccapccon"){                                   // if equal and below minimum amount - Contractual Employee Regular CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h4 class="text-center text-danger">Not allowed amount!<br>Must be above P'+aboveminspeccapccon+'</h4>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "aboveminregcareg"){                                   // if equal and below minimum amount - Regular Employee Regular CA
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h4 class="text-center text-danger">Not allowed amount!<br>Must be above P'+aboveminregcareg+'</h4>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else if(data == "aboveminspeccapcreg"){                                   // if equal and below minimum amount - Regular Employee Regular CA Petty Cash
+				
+							 var dialog = new BootstrapDialog({
+								size: BootstrapDialog.SIZE_SMALL,
+								message: function(dialogRef){
+									var $message = $('<h4 class="text-center text-danger">Not allowed amount!<br>Must be above P'+aboveminspeccapcreg+'</h4>');
+									var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+									$button.on('click', {dialogRef: dialogRef}, function(event){
+										event.data.dialogRef.close();
+									});
+									$message.append($button);
+							
+									return $message;
+								},
+								closable: false
+							});
+							dialog.realize();
+							dialog.getModalHeader().hide();
+							dialog.getModalFooter().hide();
+							dialog.getModalBody().css('background-color', '#FFF');
+							dialog.getModalBody().css('color', '#F00');
+							dialog.open();
+				
+				}
+				else {
+					BootstrapDialog.show({
+						title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+						type: BootstrapDialog.TYPE_DANGER,
+						size: BootstrapDialog.SIZE_SMALL,
+						closable:false,
+						draggable:true,
+						message: 'Are you sure to submit this request?',
+						buttons: [{
+							label: 'Yes',
+							icon: 'glyphicon glyphicon-ok',
+							cssClass: "btn-sm btn-success",
+							action: function(dialog) {
+								   $.ajax({
+										type: "POST",
+										url: "template/CashAdvance/save_request.php?request=saveCA",
+										data: { caType : caType, amtFigures : amtFigures, amtWords : amtWords, empRemarks : empRemarks},
+										success: function(data){
+											data = data.trim();
+											if(data == "Ok"){
+												var dialog = new BootstrapDialog({
+													size: BootstrapDialog.SIZE_SMALL,
+													message: function(dialogRef){
+														var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+														var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+														$button.on('click', {dialogRef: dialogRef}, function(event){
+															event.data.dialogRef.close();
+															window.location.reload();
+														});
+														$message.append($button);
+												
+														return $message;
+													},
+													closable: false
+												});
+												dialog.realize();
+												dialog.getModalHeader().hide();
+												dialog.getModalFooter().hide();
+												dialog.getModalBody().css('background-color', '#FFF');
+												dialog.getModalBody().css('color', '#F00');
+												dialog.open();
+											}
+									}
+								});
+							}
+						}, {
+							label: 'No',
+							icon: 'glyphicon glyphicon-ban-circle',
+							cssClass: "btn-sm btn-danger",
+							action: function(dialog) {
+								dialog.close();
+								event.data.dialogRef.close();
+							}
+						}]
+					});
+				}
+				}
+			});
+
+    }
+    else{
+		 var dialog = new BootstrapDialog({
+			size: BootstrapDialog.SIZE_SMALL,
+            message: function(dialogRef){
+                var $message = $('<h3 class="text-center text-danger">All fields are required!</h3>');
+                var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+                $button.on('click', {dialogRef: dialogRef}, function(event){
+                    event.data.dialogRef.close();
+                });
+                $message.append($button);
+        
+                return $message;
+            },
+            closable: false
+        });
+        dialog.realize();
+        dialog.getModalHeader().hide();
+        dialog.getModalFooter().hide();
+        dialog.getModalBody().css('background-color', '#FFF');
+        dialog.getModalBody().css('color', '#F00');
+        dialog.open();
+    }
+}
+
+function cancelRequest()
+{
+	var caType = $('[name="caType"]:checked').val();
+    var amtFigures = $('[name="amtFigures"]').val();
+	var empRemarks = $('[name="empRemarks"]').val();
+	
+	
+	if(amtFigures == '0.00' && !caType && !empRemarks){
+		var dialog = new BootstrapDialog({
+			size: BootstrapDialog.SIZE_SMALL,
+            message: function(dialogRef){
+                var $message = $('<h3 class="text-center text-danger">Nothing to cancel!</h3>');
+                var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+                $button.on('click', {dialogRef: dialogRef}, function(event){
+                    event.data.dialogRef.close();
+                });
+                $message.append($button);
+        
+                return $message;
+            },
+            closable: false
+        });
+        dialog.realize();
+        dialog.getModalHeader().hide();
+        dialog.getModalFooter().hide();
+        dialog.getModalBody().css('background-color', '#FFF');
+        dialog.getModalBody().css('color', '#F00');
+        dialog.open();
+	}
+	else{
+		BootstrapDialog.show({
+		title: '<span class="glyphicon glyphicon-warning-sign"></span> Warning',
+		type: BootstrapDialog.TYPE_DANGER,
+		size: BootstrapDialog.SIZE_SMALL,
+		closable:false,
+		draggable:true,
+		message: 'Are you sure to cancel this request?',
+		buttons: [{
+			label: 'Yes',
+			icon: 'glyphicon glyphicon-ok',
+			cssClass: "btn-sm btn-success",
+			action: function(dialog) {
+				  window.location.reload();
+			}
+		}, {
+			label: 'No',
+			icon: 'glyphicon glyphicon-ban-circle',
+			cssClass: "btn-sm btn-danger",
+			action: function(dialog) {
+				dialog.close();
+			}
+		}]
+	});
+	}
+}
+
+function cboxAll(){
+
+        $(".cbox_").prop("checked",true);
+    
+    }
+    
+function uncboxAll(){
+
+        $(".cbox_").prop("checked",false);
+
+}
+
+
+function viewRequest(){
+
+		 var a = document.getElementsByName('chck[]');
+		 var tempD = "";
+		 var temp = "";
+		 var y = 0;
+		 var catype = "";
+		 var amt = "";
+		 
+		 
+		 
+		for(var i = 0;i<a.length;i++) {
+			if(a[i].checked == true) {
+				tempE = a[i].value;
+				
+				if(tempE != ""){
+					tempD = "True";
+				}
+
+				temp += tempE +"&&";
+				catype = $("table  tr  td[class^='cattype_"+a[i].value+"']").html().trim(); 		//ca type sa datatables
+				amt = $("#amtf_"+a[i].value).html().trim();
+				y++;
+			}
+		}
+			if(tempD == ""){
+				var dialog = new BootstrapDialog({
+					size: BootstrapDialog.SIZE_SMALL,
+					message: function(dialogRef){
+						var $message = $('<h3 class="text-center text-danger">Please select first. Thank you.</h3>');
+						var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+						$button.on('click', {dialogRef: dialogRef}, function(event){
+							event.data.dialogRef.close();
+						});
+						$message.append($button);
+				
+						return $message;
+					},
+					closable: false
+				});
+				dialog.realize();
+				dialog.getModalHeader().hide();
+				dialog.getModalFooter().hide();
+				dialog.getModalBody().css('background-color', '#FFF');
+				dialog.getModalBody().css('color', '#F00');
+				dialog.open();
+			}
+			else {
+				var $data = temp.split('&&');
+					var $content = $("<div class='row' style='height:350px;overflow-y:scroll'></div>");
+					var $no = 1;
+					var dlength = $data.length-1;
+					for(var x=0;x<$data.length-1;x++){
+						$content.append('<div class="col-xs-12 col-md-12">'+
+												'<div class="form-group">'+
+													'<label style="font-family:calibri;">'+$no+'. Name: <label class="text-danger">'+$("#empname_"+$data[x]).html().trim()+'</label></label><br>'+
+													'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Amount Requested: <label class="text-danger">&#8369; '+$("#amtf_"+$data[x]).html().trim()+'</label></label><br>'+
+													"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Employee's Remarks: <label class='text-danger'>"+$('#remarks_'+$data[x]).html().trim()+"</label></label><br>"+
+												'</div>'+
+												'<div class="row">'+
+													'<div style="margin-left:13px; margin-top:-15px; padding-left:15px; padding-right:23px;">'+
+														'<div class="form-group">'+
+															'<label style="font-family:calibri;">Approval Remarks / Disapproval Reason :</label>'+
+															'<textarea class="form-control" name="remson[]"></textarea>'+
+															'<input type="hidden" value="'+$data[x]+'" name="careq_idAppDis[]">'+
+														'</div>'+
+													'</div>'+
+												'</div>'+												
+											'</div>'+
+										 '</div>');
+						$no++;
+					}
+				BootstrapDialog.show({
+					title: '<span class="glyphicon glyphicon-zoom-in"></span> View '+y+' record(s) of Cash Advance Request',
+					type: BootstrapDialog.TYPE_PRIMARY,
+					size: BootstrapDialog.SIZE_NORMAL,
+					closable:false,
+					draggable:true,
+					message: $content,
+					buttons: [{
+						label: 'Approve',
+						icon: 'glyphicon glyphicon-ok',
+						cssClass: "btn-sm btn-success",
+						action: function(dialog) {
+								var a = document.getElementsByName('remson[]');
+								var b = document.getElementsByName('careq_idAppDis[]');
+								var remson = '';
+								var careq_id = '';
+								var y = 0;
+								
+								for(var c = 0;c<a.length;c++) {
+									if(a[c].value.trim()) {
+										remson += a[c].value+'&';
+										careq_id += b[c].value+'&';
+										y++
+									}
+								}
+								if(y == 0) {
+									BootstrapDialog.show({
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+										message: "<center>Please don't leave empty fields.<br>Thank you.</center>",
+										closable: false,
+										buttons: [{
+											label: 'Ok',
+											cssClass: 'btn-primary btn-sm',
+											icon: 'glyphicon glyphicon-ok',
+											action: function(dialog1){
+												dialog1.close();
+											}
+										}]
+									});
+								}
+								else if(y != a.length){
+									BootstrapDialog.show({
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+										message: "<center>Please don't leave empty fields.<br>Thank you.</center>",
+										closable: false,
+										buttons: [{
+											label: 'Ok',
+											cssClass: 'btn-default btn-sm',
+											icon: 'glyphicon glyphicon-ok',
+											action: function(dialog1){
+												dialog1.close();
+											}
+										}]
+									});
+								}
+								else {
+									BootstrapDialog.show({
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+										message: '<center>Are you sure you want to approve this request?</center>',
+										closable: false,
+										buttons: [{
+											label: 'Yes',
+											cssClass: 'btn-success btn-sm',
+											icon: 'glyphicon glyphicon-ok',
+											action: function(dialog2){
+												var $button = this; // 'this' here is a jQuery object that wrapping the <button> DOM element.
+												$button.disable();
+												$button.spin();
+												$.ajax({
+													type:"POST",
+													url:"template/CashAdvance/save_request.php?request=saveCA",
+													data:{careq_id:careq_id,remson:remson,catype:catype,amt:amt},
+													success:function(data){
+														if(data == "Ok"){
+															var dialog = new BootstrapDialog({
+																size: BootstrapDialog.SIZE_SMALL,
+																message: function(dialogRef){
+																	var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+																	var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																	$button.on('click', {dialogRef: dialogRef}, function(event){
+																		event.data.dialogRef.close();
+																		window.location.reload();
+																	});
+																	$message.append($button);
+															
+																	return $message;
+																},
+																closable: false
+															});
+															dialog.realize();
+															dialog.getModalHeader().hide();
+															dialog.getModalFooter().hide();
+															dialog.getModalBody().css('background-color', '#FFF');
+															dialog.getModalBody().css('color', '#F00');
+															dialog.open();
+														}
+														else {
+															alert(data);
+														}
+													}
+												});
+											}
+										},{
+											label: 'No',
+											cssClass: 'btn-danger btn-sm',
+											icon: 'glyphicon glyphicon-remove',
+											action: function(dialog2){
+												dialog2.close();
+											}
+										}]
+									});
+								}
+						}
+					},{
+						label: 'Disapprove',
+						icon: 'glyphicon glyphicon-trash',
+						cssClass: "btn-sm btn-primary",
+						action: function(dialog) {
+								var a = document.getElementsByName('remson[]');
+								var b = document.getElementsByName('careq_idAppDis[]');
+								var remson = '';
+								var careq_id = '';
+								var y = 0;
+								
+								for(var c = 0;c<a.length;c++) {
+									if(a[c].value.trim()) {
+										remson += a[c].value+'&';
+										careq_id += b[c].value+'&';
+										y++
+									}	
+								}
+								if(y == 0) {
+									BootstrapDialog.show({
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+										message: "<center>Please don't leave empty fields.<br>Thank you.</center>",
+										closable: false,
+										buttons: [{
+											label: 'Ok',
+											cssClass: 'btn-primary btn-sm',
+											icon: 'glyphicon glyphicon-ok',
+											action: function(dialog1){
+												dialog1.close();
+											}
+										}]
+									});
+								}
+								else if(y != a.length){
+									BootstrapDialog.show({
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+										message: "<center>Please don't leave empty fields.<br>Thank you.</center>",
+										closable: false,
+										buttons: [{
+											label: 'Ok',
+											cssClass: 'btn-default btn-sm',
+											icon: 'glyphicon glyphicon-ok',
+											action: function(dialog1){
+												dialog1.close();
+											}
+										}]
+									});
+								}
+								else {
+									BootstrapDialog.show({
+										type: BootstrapDialog.TYPE_DANGER,
+										size: BootstrapDialog.SIZE_SMALL,
+										title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+										message: '<center>Are you sure you want to decline this request?</center>',
+										closable: false,
+										buttons: [{
+											label: 'Yes',
+											cssClass: 'btn-success btn-sm',
+											icon: 'glyphicon glyphicon-ok',
+											action: function(dialog2){
+												var $button = this; // 'this' here is a jQuery object that wrapping the <button> DOM element.
+												$button.disable();
+												$button.spin();
+												$.ajax({
+													type:"POST",
+													url:"template/CashAdvance/decline_request.php?request=declineCA",
+													data:{careq_id:careq_id,remson:remson,catype:catype},
+													success:function(data){
+														if(data == "Ok"){
+															var dialog = new BootstrapDialog({
+																size: BootstrapDialog.SIZE_SMALL,
+																message: function(dialogRef){
+																	var $message = $('<h3 class="text-center text-success">Successfully Declined!</h3>');
+																	var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+																	$button.on('click', {dialogRef: dialogRef}, function(event){
+																		event.data.dialogRef.close();
+																		window.location.reload();
+																	});
+																	$message.append($button);
+															
+																	return $message;
+																},
+																closable: false
+															});
+															dialog.realize();
+															dialog.getModalHeader().hide();
+															dialog.getModalFooter().hide();
+															dialog.getModalBody().css('background-color', '#FFF');
+															dialog.getModalBody().css('color', '#F00');
+															dialog.open();
+														}
+														else {
+															alert(data);
+														}
+													}
+												});
+											}
+										},{
+											label: 'No',
+											cssClass: 'btn-danger btn-sm',
+											icon: 'glyphicon glyphicon-remove',
+											action: function(dialog2){
+												dialog2.close();
+											}
+										}]
+									});
+								}
+						}
+					},{
+						label: 'Close',
+						icon: 'glyphicon glyphicon-ban-circle',
+						cssClass: "btn-sm btn-danger",
+						action: function(dialog) {
+							dialog.close();
+						}
+					}]
+				});
+			}
+}
+
+function viewReviewed(){
+
+		 var a = document.getElementsByName('chck[]');
+		 var tempD = "";
+		 var temp = "";
+		 var y = 0;
+		 var catype = "";
+		 var amt = "";
+		 
+		 
+		 
+		for(var i = 0;i<a.length;i++) {
+			if(a[i].checked == true) {
+				tempE = a[i].value;
+				
+				if(tempE != ""){
+					tempD = "True";
+				}
+
+				temp += tempE +"&&";
+				catype = $("table  tr  td[class^='cattype_"+a[i].value+"']").html().trim(); 		//ca type sa datatables
+				amt = $("#amtf_"+a[i].value).html().trim();
+				y++;
+			}
+		}
+			
+			if(tempD == ""){
+				var dialog = new BootstrapDialog({
+					size: BootstrapDialog.SIZE_SMALL,
+					message: function(dialogRef){
+						var $message = $('<h3 class="text-center text-danger">Please select first.<br>Thank you.</h3>');
+						var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+						$button.on('click', {dialogRef: dialogRef}, function(event){
+							event.data.dialogRef.close();
+						});
+						$message.append($button);
+				
+						return $message;
+					},
+					closable: false
+				});
+				dialog.realize();
+				dialog.getModalHeader().hide();
+				dialog.getModalFooter().hide();
+				dialog.getModalBody().css('background-color', '#FFF');
+				dialog.getModalBody().css('color', '#F00');
+				dialog.open();
+			}
+			else {
+				var $data = temp.split('&&');
+					var $content = $("<div class='row' style='height:350px;overflow-y:scroll'></div>");
+					var $no = 1;
+					var dlength = $data.length-1;
+					for(var x=0;x<$data.length-1;x++){
+						$content.append('<div class="col-xs-12 col-md-12">'+
+													'<div class="form-group">'+
+														'<label style="font-family:calibri;">'+$no+'. Name: <label class="text-danger">'+$("#empname_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Amount Requested: <label class="text-danger">P'+$("#amtf_"+$data[x]).html().trim()+'</label></label><br>'+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Employee's Remark: <label class='text-danger'>"+$('#empremarks_'+$data[x]).html().trim()+"</label></label><br>"+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Reviewed by: <label class="text-danger">'+$("#supname_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Date & Time Reviewed: <label class="text-danger">'+$("#datetime_"+$data[x]).html().trim()+'</label></label><br>'+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Supervisor's Remark: <label class='text-danger'>"+$('#supremarks_'+$data[x]).html().trim()+"</label></label><br>"+
+													'</div>'+
+												'</div>');
+						$no++;
+					}
+				BootstrapDialog.show({
+					title: '<span class="glyphicon glyphicon-zoom-in"></span> View '+y+' record(s) of Cash Advance Request',
+					type: BootstrapDialog.TYPE_PRIMARY,
+					size: BootstrapDialog.SIZE_NORMAL,
+					closable:false,
+					draggable:true,
+					message: $content,
+					buttons: [{
+						label: 'Close',
+						icon: 'glyphicon glyphicon-ban-circle',
+						cssClass: "btn-sm btn-danger",
+						action: function(dialog) {
+							dialog.close();
+						}
+					}]
+				});
+			}
+}
+
+function saveBal()
+{
+    var a = document.getElementsByName('chck[]');
+	var b = document.getElementsByName('balSpecial[]');
+	var tempD = "";
+	var temp = "";
+	var y = 0;
+	var balSpecial = "";
+	var emp_id = "";
+		 
+		 
+		 
+	for(var i = 0;i<a.length;i++) {
+		if(a[i].checked == true) {
+			emp_id += a[i].value+"&";
+			balSpecial += b[i].value+"&";
+			
+			y++;
+		}
+	}
+		
+		if(y == 0){
+			var dialog = new BootstrapDialog({
+				size: BootstrapDialog.SIZE_SMALL,
+				message: function(dialogRef){
+					var $message = $('<h3 class="text-center text-danger">Please select first.<br>Thank you.</h3>');
+					var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+					$button.on('click', {dialogRef: dialogRef}, function(event){
+						event.data.dialogRef.close();
+					});
+					$message.append($button);
+			
+					return $message;
+				},
+				closable: false
+			});
+			dialog.realize();
+			dialog.getModalHeader().hide();
+			dialog.getModalFooter().hide();
+			dialog.getModalBody().css('background-color', '#FFF');
+			dialog.getModalBody().css('color', '#F00');
+			dialog.open();
+		}
+		else {
+		
+				BootstrapDialog.show({
+				type: BootstrapDialog.TYPE_DANGER,
+				size: BootstrapDialog.SIZE_SMALL,
+				title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+				message: '<center>Are you sure you want to submit? </center>',
+				closable: false,
+				buttons: [{
+					label: 'Yes',
+					cssClass: 'btn-success btn-sm',
+					icon: 'glyphicon glyphicon-ok',
+					action: function(dialog2){
+						var $button = this; // 'this' here is a jQuery object that wrapping the <button> DOM element.
+						$button.disable();
+						$button.spin();
+						$.ajax({
+							type:"POST",
+							url:"template/CashAdvance/save_balance.php?input=saveBal",
+							data:{emp_id:emp_id,balSpecial:balSpecial},
+							success:function(data){
+								if(data == ""){
+									var dialog = new BootstrapDialog({
+										size: BootstrapDialog.SIZE_SMALL,
+										message: function(dialogRef){
+											var $message = $('<h3 class="text-center text-success">Successfully Saved!</h3>');
+											var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+											$button.on('click', {dialogRef: dialogRef}, function(event){
+												event.data.dialogRef.close();
+												window.location.reload();
+											});
+											$message.append($button);
+									
+											return $message;
+										},
+										closable: false
+									});
+									dialog.realize();
+									dialog.getModalHeader().hide();
+									dialog.getModalFooter().hide();
+									dialog.getModalBody().css('background-color', '#FFF');
+									dialog.getModalBody().css('color', '#F00');
+									dialog.open();
+								}
+								else {
+									var dialog = new BootstrapDialog({
+                                        size: BootstrapDialog.SIZE_SMALL,
+                                        message: function(dialogRef){
+                                            var $message = $('<h3 class="text-center text-danger">Duplicate<br>Employee ID(s) :<br><br>'+data+'</h3>');
+                                            var $button = $('<br><br><button class="btn btn-primary btn-md"><i class="glyphicon glyphicon-ok">&nbsp;OK</i></button>');
+                                            $button.on('click', {dialogRef: dialogRef}, function(event){
+                                                // event.data.dialogRef.close();
+                                                 BootstrapDialog.closeAll();
+                                                // window.location.reload();
+                                            });
+                                            $message.append($button);
+                                    
+                                            return $message;
+                                        },
+                                        closable: false
+                                    });
+                                    dialog.realize();
+                                    dialog.getModalHeader().hide();
+                                    dialog.getModalFooter().hide();
+                                    dialog.getModalBody().css('background-color', '#FFF');
+                                    dialog.getModalBody().css('color', '#F00');
+                                    dialog.open();
+								}
+							}
+						});
+					}
+				},{
+					label: 'No',
+					cssClass: 'btn-danger btn-sm',
+					icon: 'glyphicon glyphicon-remove',
+					action: function(dialog2){
+						dialog2.close();
+					}
+				}]
+			});
+		}
+}
+
+function viewAcctgDetails(){
+
+		 var a = document.getElementsByName('chck[]');
+		 var tempD = "";
+		 var temp = "";
+		 var y = 0;
+		 var catype = "";
+		 var amt = "";
+		 
+		 
+		 
+		for(var i = 0;i<a.length;i++) {
+			if(a[i].checked == true) {
+				tempE = a[i].value;
+				
+				if(tempE != ""){
+					tempD = "True";
+				}
+
+				temp += tempE +"&&";
+				catype = $("table  tr  td[class^='cattype_"+a[i].value+"']").html().trim(); 		//ca type sa datatables
+				amt = $("#amtf_"+a[i].value).html().trim();
+				y++;
+			}
+		}
+			
+			if(tempD == ""){
+				var dialog = new BootstrapDialog({
+					size: BootstrapDialog.SIZE_SMALL,
+					message: function(dialogRef){
+						var $message = $('<h3 class="text-center text-danger">Please select first.<br>Thank you.</h3>');
+						var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+						$button.on('click', {dialogRef: dialogRef}, function(event){
+							event.data.dialogRef.close();
+						});
+						$message.append($button);
+				
+						return $message;
+					},
+					closable: false
+				});
+				dialog.realize();
+				dialog.getModalHeader().hide();
+				dialog.getModalFooter().hide();
+				dialog.getModalBody().css('background-color', '#FFF');
+				dialog.getModalBody().css('color', '#F00');
+				dialog.open();
+			}
+			else {
+				var $data = temp.split('&&');
+					var $content = $("<div class='row' style='height:350px;overflow-y:scroll'></div>");
+					var $no = 1;
+					var dlength = $data.length-1;
+					for(var x=0;x<$data.length-1;x++){
+						$content.append('<div class="col-xs-12 col-md-12">'+
+													'<div class="form-group">'+
+														'<label style="font-family:calibri;">'+$no+'. Name: <label class="text-danger">'+$("#empname_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Amount Requested: <label class="text-danger">P'+$("#amtf_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Date & Time Requested: <label class="text-danger">'+$("#datetime_"+$data[x]).html().trim()+'</label></label><br>'+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Employee's Remark: <label class='text-danger'>"+$('#empremarks_'+$data[x]).html().trim()+"</label></label><br>"+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Reviewed by: <label class="text-danger">'+$("#supname_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Date & Time Reviewed: <label class="text-danger">'+$("#datetime1_"+$data[x]).html().trim()+'</label></label><br>'+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Supervisor's Remark: <label class='text-danger'>"+$('#supremarks_'+$data[x]).html().trim()+"</label></label><br>"+
+													'</div>'+
+												'</div>');
+						$no++;
+					}
+				BootstrapDialog.show({
+					title: '<span class="glyphicon glyphicon-zoom-in"></span> View '+y+' record(s) of Cash Advance Request',
+					type: BootstrapDialog.TYPE_PRIMARY,
+					size: BootstrapDialog.SIZE_NORMAL,
+					closable:false,
+					draggable:true,
+					message: $content,
+					buttons: [{
+						label: 'Close',
+						icon: 'glyphicon glyphicon-ban-circle',
+						cssClass: "btn-sm btn-danger",
+						action: function(dialog) {
+							dialog.close();
+						}
+					}]
+				});
+			}
+}
+
+function incorApprove()
+{
+    var a = document.getElementsByName('chck[]');
+	var b = document.getElementsByName('amtFigures[]');
+	var c = document.getElementsByName('amtWords[]');
+	var d = document.getElementsByName('incorRemarks[]');
+	
+	var tempD = "";
+	var temp = "";
+	var x = 0;
+	var y = 0;
+	var amtFigures = "";
+	var amtWords = "";
+	var incorRemarks = "";
+	var careq_id = "";
+		 
+		 
+		 
+	for(var i = 0;i<a.length;i++) {
+		if(a[i].checked == true) {
+			careq_id += a[i].value+"&";
+			amtFigures += b[i].value+"&";
+			amtWords += c[i].value+"&";
+			incorRemarks += d[i].value+"&";
+			if(c[i].value.trim() && d[i].value.trim()){
+				x++;
+			}
+			y++;
+		}
+	}
+		//alert(d.length+" "+y+" "+x);
+		
+		if(y == 0){
+			var dialog = new BootstrapDialog({
+				size: BootstrapDialog.SIZE_SMALL,
+				message: function(dialogRef){
+					var $message = $('<h3 class="text-center text-danger">Please select first.<br>Thank you.</h3>');
+					var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+					$button.on('click', {dialogRef: dialogRef}, function(event){
+						event.data.dialogRef.close();
+					});
+					$message.append($button);
+			
+					return $message;
+				},
+				closable: false
+			});
+			dialog.realize();
+			dialog.getModalHeader().hide();
+			dialog.getModalFooter().hide();
+			dialog.getModalBody().css('background-color', '#FFF');
+			dialog.getModalBody().css('color', '#F00');
+			dialog.open();
+		}
+		// else  if(x != y){
+			// var dialog = new BootstrapDialog({
+				// size: BootstrapDialog.SIZE_SMALL,
+				// message: function(dialogRef){
+					// var $message = $('<h3 class="text-center text-danger">All fields are required!</h3>');
+					// var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+					// $button.on('click', {dialogRef: dialogRef}, function(event){
+						// event.data.dialogRef.close();
+					// });
+					// $message.append($button);
+			
+					// return $message;
+				// },
+				// closable: false
+			// });
+			// dialog.realize();
+			// dialog.getModalHeader().hide();
+			// dialog.getModalFooter().hide();
+			// dialog.getModalBody().css('background-color', '#FFF');
+			// dialog.getModalBody().css('color', '#F00');
+			// dialog.open();
+		// }
+		else {
+		
+				BootstrapDialog.show({
+				type: BootstrapDialog.TYPE_DANGER,
+				size: BootstrapDialog.SIZE_SMALL,
+				title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+				message: '<center>Are you sure you want to submit? </center>',
+				closable: false,
+				buttons: [{
+					label: 'Yes',
+					cssClass: 'btn-success btn-sm',
+					icon: 'glyphicon glyphicon-ok',
+					action: function(dialog2){
+						var $button = this; // 'this' here is a jQuery object that wrapping the <button> DOM element.
+						$button.disable();
+						$button.spin();
+						$.ajax({
+							type:"POST",
+							url:"template/CashAdvance/approve_amount.php?approve=amount",
+							data:{careq_id:careq_id,amtFigures:amtFigures,amtWords:amtWords,incorRemarks:incorRemarks},
+							success:function(data){
+								if(data == "Ok"){
+									var dialog = new BootstrapDialog({
+										size: BootstrapDialog.SIZE_SMALL,
+										message: function(dialogRef){
+											var $message = $('<h3 class="text-center text-success">Successfully Saved. Thank you.</h3>');
+											var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+											$button.on('click', {dialogRef: dialogRef}, function(event){
+												event.data.dialogRef.close();
+												window.location.reload();
+											});
+											$message.append($button);
+									
+											return $message;
+										},
+										closable: false
+									});
+									dialog.realize();
+									dialog.getModalHeader().hide();
+									dialog.getModalFooter().hide();
+									dialog.getModalBody().css('background-color', '#FFF');
+									dialog.getModalBody().css('color', '#F00');
+									dialog.open();
+								}
+								else {
+									alert(data);
+								}
+							}
+						});
+					}
+				},{
+					label: 'No',
+					cssClass: 'btn-danger btn-sm',
+					icon: 'glyphicon glyphicon-remove',
+					action: function(dialog2){
+						dialog2.close();
+					}
+				}]
+			});
+		}
+}
+
+function incorDisapprove(){
+
+	var a = document.getElementsByName('chck[]');
+	var b = document.getElementsByName('incorRemarks[]');
+	
+	var careq_id = '';
+	var incorRemarks = "";
+	var y = 0;
+	
+	
+	for(var i = 0;i<a.length;i++) {
+		if(a[i].checked == true) {
+			careq_id += a[i].value+"&";
+			incorRemarks += b[i].value+"&";
+			y++;
+		}
+	}
+	
+	if(y == 0){
+		var dialog = new BootstrapDialog({
+			size: BootstrapDialog.SIZE_SMALL,
+			message: function(dialogRef){
+				var $message = $('<h3 class="text-center text-danger">Please select first.<br>Thank you.</h3>');
+				var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+				$button.on('click', {dialogRef: dialogRef}, function(event){
+					event.data.dialogRef.close();
+				});
+				$message.append($button);
+		
+				return $message;
+			},
+			closable: false
+		});
+		dialog.realize();
+		dialog.getModalHeader().hide();
+		dialog.getModalFooter().hide();
+		dialog.getModalBody().css('background-color', '#FFF');
+		dialog.getModalBody().css('color', '#F00');
+		dialog.open();
+	}
+	else{
+			BootstrapDialog.show({
+			type: BootstrapDialog.TYPE_DANGER,
+			size: BootstrapDialog.SIZE_SMALL,
+			title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+			message: '<center>Are you sure you want to decline? </center>',
+			closable: false,
+			buttons: [{
+				label: 'Yes',
+				cssClass: 'btn-success btn-sm',
+				icon: 'glyphicon glyphicon-ok',
+				action: function(dialog2){
+					var $button = this; // 'this' here is a jQuery object that wrapping the <button> DOM element.
+					$button.disable();
+					$button.spin();
+					$.ajax({
+						type:"POST",
+						url:"template/CashAdvance/decline_request.php?request=declineCA",
+						data:{careq_id:careq_id,incorRemarks:incorRemarks},
+						success:function(data){
+							if(data == "Ok"){
+								var dialog = new BootstrapDialog({
+									size: BootstrapDialog.SIZE_SMALL,
+									message: function(dialogRef){
+										var $message = $('<h3 class="text-center text-success">Successfully Declined. Thank you.</h3>');
+										var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+										$button.on('click', {dialogRef: dialogRef}, function(event){
+											event.data.dialogRef.close();
+											window.location.reload();
+										});
+										$message.append($button);
+								
+										return $message;
+									},
+									closable: false
+								});
+								dialog.realize();
+								dialog.getModalHeader().hide();
+								dialog.getModalFooter().hide();
+								dialog.getModalBody().css('background-color', '#FFF');
+								dialog.getModalBody().css('color', '#F00');
+								dialog.open();
+							}
+							else {
+								alert(data);
+							}
+						}
+					});
+				}
+			},{
+				label: 'No',
+				cssClass: 'btn-danger btn-sm',
+				icon: 'glyphicon glyphicon-remove',
+				action: function(dialog2){
+					dialog2.close();
+				}
+			}]
+		});
+	}
+
+}
+
+// {
+	// label: 'Disapprove',
+	// icon: 'glyphicon glyphicon-trash',
+	// cssClass: "btn-sm btn-primary",
+	// action: function(dialog) {
+			// var a = document.getElementsByName('reason[]');
+			// var b = document.getElementsByName('careq_idDis[]');
+			// var reason = '';
+			// var careq_id = '';
+			// var y = 0;
+			
+			// for(var c = 0;c<a.length;c++) {
+				// if(a[c].value.trim()) {
+					// reason += a[c].value+'&';
+					// careq_id += b[c].value+'&';
+					// y++
+				// }	
+			// }
+			// if(y == 0) {
+				// BootstrapDialog.show({
+					// type: BootstrapDialog.TYPE_DANGER,
+					// size: BootstrapDialog.SIZE_SMALL,
+					// title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+					// message: "<center>Please don't leave empty fields!</center>",
+					// closable: false,
+					// buttons: [{
+						// label: 'Ok',
+						// cssClass: 'btn-primary btn-sm',
+						// icon: 'glyphicon glyphicon-ok',
+						// action: function(dialog1){
+							// dialog1.close();
+						// }
+					// }]
+				// });
+			// }
+			// else if(y != a.length){
+				// BootstrapDialog.show({
+					// type: BootstrapDialog.TYPE_DANGER,
+					// size: BootstrapDialog.SIZE_SMALL,
+					// title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+					// message: "<center>Please don't leave empty fields!</center>",
+					// closable: false,
+					// buttons: [{
+						// label: 'Ok',
+						// cssClass: 'btn-default btn-sm',
+						// icon: 'glyphicon glyphicon-ok',
+						// action: function(dialog1){
+							// dialog1.close();
+						// }
+					// }]
+				// });
+			// }
+			// else {
+				// BootstrapDialog.show({
+					// type: BootstrapDialog.TYPE_DANGER,
+					// size: BootstrapDialog.SIZE_SMALL,
+					// title: '<i class="glyphicon glyphicon-warning-sign"></i> Warning',
+					// message: '<center>Are you sure you want to decline this request?</center>',
+					// closable: false,
+					// buttons: [{
+						// label: 'Yes',
+						// cssClass: 'btn-success btn-sm',
+						// icon: 'glyphicon glyphicon-ok',
+						// action: function(dialog2){
+							// var $button = this; // 'this' here is a jQuery object that wrapping the <button> DOM element.
+							// $button.disable();
+							// $button.spin();
+							// $.ajax({
+								// type:"POST",
+								// url:"template/CashAdvance/decline_request.php?request=declineCA",
+								// data:{careq_id:careq_id,reason:reason,catype:catype},
+								// success:function(data){
+									// if(data == "Ok"){
+										// var dialog = new BootstrapDialog({
+											// size: BootstrapDialog.SIZE_SMALL,
+											// message: function(dialogRef){
+												// var $message = $('<h3 class="text-center text-success">Successfully Declined!</h3>');
+												// var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+												// $button.on('click', {dialogRef: dialogRef}, function(event){
+													// event.data.dialogRef.close();
+													// window.location.reload();
+												// });
+												// $message.append($button);
+										
+												// return $message;
+											// },
+											// closable: false
+										// });
+										// dialog.realize();
+										// dialog.getModalHeader().hide();
+										// dialog.getModalFooter().hide();
+										// dialog.getModalBody().css('background-color', '#FFF');
+										// dialog.getModalBody().css('color', '#F00');
+										// dialog.open();
+									// }
+									// else {
+										// alert(data);
+									// }
+								// }
+							// });
+						// }
+					// },{
+						// label: 'No',
+						// cssClass: 'btn-danger btn-sm',
+						// icon: 'glyphicon glyphicon-remove',
+						// action: function(dialog2){
+							// dialog2.close();
+						// }
+					// }]
+				// });
+			// }
+	// }
+// }
+
+function viewIncorDetails(){
+
+		 var a = document.getElementsByName('chck[]');
+		 var tempD = "";
+		 var temp = "";
+		 var y = 0;
+		 var catype = "";
+		 var amt = "";
+		 
+		 
+		 
+		for(var i = 0;i<a.length;i++) {
+			if(a[i].checked == true) {
+				tempE = a[i].value;
+				
+				if(tempE != ""){
+					tempD = "True";
+				}
+
+				temp += tempE +"&&";
+				catype = $("table  tr  td span[class^='cattype_"+a[i].value+"']").html().trim(); 		//ca type sa datatables
+				amt = $("#amtf_"+a[i].value).html().trim();
+				y++;
+			}
+		}
+			
+			if(tempD == ""){
+				var dialog = new BootstrapDialog({
+					size: BootstrapDialog.SIZE_SMALL,
+					message: function(dialogRef){
+						var $message = $('<h3 class="text-center text-danger">Please select first.<br>Thank you.</h3>');
+						var $button = $('<br><button class="btn btn-primary btn-sm">OK</button>');
+						$button.on('click', {dialogRef: dialogRef}, function(event){
+							event.data.dialogRef.close();
+						});
+						$message.append($button);
+				
+						return $message;
+					},
+					closable: false
+				});
+				dialog.realize();
+				dialog.getModalHeader().hide();
+				dialog.getModalFooter().hide();
+				dialog.getModalBody().css('background-color', '#FFF');
+				dialog.getModalBody().css('color', '#F00');
+				dialog.open();
+			}
+			else {
+				var $data = temp.split('&&');
+					var $content = $("<div class='row' style='height:350px;overflow-y:scroll'></div>");
+					var $no = 1;
+					var dlength = $data.length-1;
+					for(var x=0;x<$data.length-1;x++){
+						$content.append('<div class="col-xs-12 col-md-12">'+
+													'<div class="form-group">'+
+														'<label style="font-family:calibri;">'+$no+'. Name: <label class="text-danger">'+$("#empname_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Employee Type: <label class="text-danger">'+$("#emptype_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Cash Advance Type: <label class="text-danger">'+$("#catype_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Amount Requested: <label class="text-danger">P'+$("#amtf_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Date & Time Requested: <label class="text-danger">'+$("#datetimereq_"+$data[x]).html().trim()+'</label></label><br>'+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Employee's Remark: <label class='text-danger'>"+$('#empremarks_'+$data[x]).html().trim()+"</label></label><br>"+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Status: <label class="text-danger">'+$("#status_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Reviewed by: <label class="text-danger">'+$("#supname_"+$data[x]).html().trim()+'</label></label><br>'+
+														'<label style="font-family:calibri;">&nbsp;&nbsp;&nbsp;&nbsp;Date & Time Reviewed: <label class="text-danger">'+$("#datetimerev_"+$data[x]).html().trim()+'</label></label><br>'+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Supervisor's Remark: <label class='text-danger'>"+$('#supremarks_'+$data[x]).html().trim()+"</label></label><br>"+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Regular CA Balance: <label class='text-danger'>P"+$('#regbal_'+$data[x]).html().trim()+"</label></label><br>"+
+														"<label style='font-family:calibri;'>&nbsp;&nbsp;&nbsp;&nbsp;Special CA Balance: <label class='text-danger'>P"+$('#specbal_'+$data[x]).html().trim()+"</label></label><br>"+
+													'</div>'+
+												'</div>');
+						$no++;
+					}
+					BootstrapDialog.show({
+					title: '<span class="glyphicon glyphicon-zoom-in"></span> View '+y+' record(s) of Cash Advance Request',
+					type: BootstrapDialog.TYPE_PRIMARY,
+					size: BootstrapDialog.SIZE_NORMAL,
+					closable:false,
+					draggable:true,
+					message: $content,
+					buttons: [{
+						label: 'Close',
+						icon: 'glyphicon glyphicon-ban-circle',
+						cssClass: "btn-sm btn-danger",
+						action: function(dialog) {
+							dialog.close();
+						}
+					}]
+				});
+			}
+}
+
+function ackReport(nameoff)
+{
+	BootstrapDialog.show({
+		title: '',
+    	type: BootstrapDialog.TYPE_DEFAULT,
+		size: BootstrapDialog.SIZE_WIDE,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../accounting/template/CashAdvance/ackreport_view.php?getdata='+nameoff
+        },
+		
+		buttons: [{
+				label: 'Close',
+				icon: 'glyphicon glyphicon-remove',
+				cssClass: "btn-sm btn-danger",
+				action: function(dialog) {
+					dialog.close();
+				}
+			}]
+		
+    });
+}
+
+function debtors_lists()
+{
+    BootstrapDialog.show({
+		title: ' ',
+    	type: BootstrapDialog.TYPE_DEFAULT,
+		size: BootstrapDialog.SIZE_WIDE,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../accounting/template/CashAdvance/debtors_lists_view.php'
+        },
+
+		buttons: [{
+				label: 'Close',
+				icon: 'glyphicon glyphicon-remove',
+				cssClass: "btn-sm btn-danger",
+				action: function(dialog) {
+					dialog.close();
+				}
+			}]
+    });
+}
+
+function dedDetails(nameoff)
+{
+    BootstrapDialog.show({
+		title: 'Deduction Details',
+    	type: BootstrapDialog.TYPE_PRIMARY,
+		size: BootstrapDialog.SIZE_NORMAL,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../accounting/template/CashAdvance/deduction_details.php?getData='+nameoff
+        }
+    });
+}
+
+function ledDetails(nameoff)
+{
+	
+	var data_choose = nameoff.split('*')
+
+    BootstrapDialog.show({
+		title: "&nbsp;"+"<img src=../../hrms/"+data_choose[0]+" width='60px'>&nbsp;&nbsp;Ledger of " +data_choose[2]+"&nbsp;"+data_choose[3],
+    	type: BootstrapDialog.TYPE_PRIMARY,
+		size: BootstrapDialog.SIZE_WIDE,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../supervisor/template/CashAdvance/ledger_details.php?getData='+data_choose[1]
+        }
+    });
+}
+
+function ledDetails2(nameoff)
+{
+	
+	var data_choose = nameoff.split('*')
+
+    BootstrapDialog.show({
+		title: "&nbsp;"+"<img src=../../hrms/"+data_choose[0]+" width='60px'>&nbsp;&nbsp;Ledger of " +data_choose[2]+"&nbsp;"+data_choose[3],
+    	type: BootstrapDialog.TYPE_PRIMARY,
+		size: BootstrapDialog.SIZE_WIDE,
+		closable: false,
+		draggable: true,
+        message: function(dialog) {
+            var $message = $('<div></div>');
+            var pageToLoad = dialog.getData('pageToLoad');
+            $message.load(pageToLoad);
+    
+            return $message;
+        },
+        data: {
+            'pageToLoad': '../supervisor/template/CashAdvance/ledger_details.php?getData='+data_choose[1]
+        }
+    });
+}
+
+
+// LOCATE ALL NEEDED
+
+
+function getBusinessName(){
+  
+  var code_C = $("[name='code']").val();
+				
+  // $(".loadImg1").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+		
+  //displaying business unit
+  $.ajax({
+    type:"POST",
+    url:"../accounting/template/CashAdvance/formLoader.php?request=load_bU",
+    data : { code_C:code_C },
+    success:function(data){
+      data = data.trim();
+      // $(".loadImg1").hide();
+      // $("#bu").hide();
+      // $(".business_unit").html(data);
+      $("#bu").html(data);
+  //<!--------------- hide if the selected is no value ---------------------->
+        if(code_C == ""){
+        // $("#bu").show();
+        // $(".business_unit").html('');
+        $("#bu").html(data);
+        }
+    }		
+  });//end ajax								
+} //end function getBusinessName
+	
+function getDepartment(){
+  //update Oct. 10 //used in piConSetup.php
+
+  var code_C = $("[name = 'code']").val();
+  var b_code = $("[name = 'b_code']").val();
+
+  // $(".loadImg2").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+			
+  $.ajax({
+    type:"POST",
+    url:"../accounting/template/CashAdvance/formLoader.php?request=load_department",
+    data : { code_C:code_C, b_code:b_code },
+    success:function(data){
+      data = data.trim();
+      // $(".loadImg2").hide();
+      // $("#dept").hide();
+      // $(".company").html(data)
+      $("#dept").html(data);					
+  //<!--------------- hide if the selected is no value -------------------------->				
+        if(b_code == ""){
+          // $("#dept").show();
+          // $(".company").html('');
+          $("#dept").html('');
+        }
+    }
+  }); //end ajax
+}  //end function getDepartment
+
+function getSection(){
+  //update Oct. 10 //used in piConSetup.php
+
+  var code_C = $("[name = 'code']").val();
+  var b_code = $("[name = 'b_code']").val();
+  var dept_code = $("[name = 'dept_code']").val();
+
+  // $(".loadImg2").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+			
+  $.ajax({
+    type:"POST",
+    url:"../accounting/template/CashAdvance/formLoader.php?request=load_section",
+    data : { code_C:code_C, b_code:b_code, dept_code:dept_code },
+    success:function(data){
+      data = data.trim();
+      // $(".loadImg2").hide();
+      // $("#dept").hide();
+      // $(".company").html(data)
+      $("#sec").html(data);					
+  //<!--------------- hide if the selected is no value -------------------------->				
+        if(b_code == ""){
+          // $("#dept").show();
+          // $(".company").html('');
+          $("#sec").html('');
+        }
+    }
+  }); //end ajax
+}  //end function getSection
+
+function getSubSection(){
+  //update Oct. 10 //used in piConSetup.php
+
+  var code_C = $("[name = 'code']").val();
+  var b_code = $("[name = 'b_code']").val();
+  var dept_code = $("[name = 'dept_code']").val();
+  var sec_code = $("[name = 'sec_code']").val();
+
+  // $(".loadImg2").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+			
+  $.ajax({
+    type:"POST",
+    url:"../accounting/template/CashAdvance/formLoader.php?request=load_subsection",
+    data : { code_C:code_C, b_code:b_code, dept_code:dept_code, sec_code:sec_code },
+    success:function(data){
+      data = data.trim();
+      // $(".loadImg2").hide();
+      // $("#dept").hide();
+      // $(".company").html(data)
+      $("#ssec").html(data);					
+  //<!--------------- hide if the selected is no value -------------------------->				
+        if(b_code == ""){
+          // $("#dept").show();
+          // $(".company").html('');
+          $("#ssec").html('');
+        }
+    }
+  }); //end ajax
+}  //end function getSection
+	
+function comp_c(){
+
+	var code_C = $("[name = 'code']").val();
+	
+	$(".showEmp")	.html("");	
+		
+		$(".resp1").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+	
+			//displaying business unit
+			$.ajax({
+			type:"POST",
+			url:"../payroll/ajaxprocess.php?request=l_bu",
+			data : { code_C:code_C },
+			success:function(data){
+					
+				data = data.trim();	
+				
+				$(".resp1").hide();
+				$("#bu").hide();
+				$(".business_unit").html(data);
+		
+
+					//<!--------------- hide if the selected is no value ---------------------->
+						
+						if(code_C == ""){
+							
+							$("#bu").show();
+							$(".business_unit").html('');	
+						}
+
+
+					//<!----------- End  hide of if the selected is no value ---------------------->
+			}
+
+
+
+
+		
+		});				
+		
+
+		
+}
+
+function bunit_u(){
+
+
+	var code_C = $("[name = 'code']").val();
+	var b_code = $("[name = 'b_code']").val();
+	$(".showEmp")	.html("");
+
+
+		$(".resp2").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+		
+		$.ajax({
+			type:"POST",
+			url:"../payroll/ajaxprocess.php?request=l_dept",
+			data : { code_C:code_C, b_code:b_code },
+			success:function(data){
+					
+				data = data.trim();	
+				 
+				$(".resp2").hide();
+				$("#dept").hide();
+				$(".company").html(data);					
+
+					//<!--------------- hide if the selected is no value ---------------------->
+						
+						if(b_code == ""){
+							
+							$("#dept").show();
+							$(".company").html('');	
+						}
+
+
+					//<!----------- End  hide of if the selected is no value ---------------------->
+
+			}
+		
+		});
+}
+
+
+
+function dept(){
+
+
+
+
+	var c_code = $("[name = 'code']").val();
+	var b_code = $("[name = 'b_code']").val();
+	var d_code = $("[name = 'dept_code']").val();
+	
+	$(".showEmp")	.html("");
+	
+		//employee
+		
+		$(".respSection").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+
+		$.ajax({
+			type:"POST",
+			url:"../payroll/ajaxprocess.php?request=l_sec",
+			data : { c_code:c_code, b_code:b_code, d_code:d_code },
+			success:function(data){
+					
+				data = data.trim();	
+	
+				$(".respSection").html('');
+				$("#sect").hide();
+				$(".section").html(data);
+
+					//<!--------------- hide if the selected is no value ---------------------->
+						
+						if(d_code == ""){
+							
+							$("#sect").show();
+							$(".section").html('');	
+						}
+
+
+					//<!----------- End  hide of if the selected is no value ---------------------->
+
+			}
+		
+		});
+					
+
+}
+
+function sect(){
+
+
+
+	var c_code = $("[name = 'code']").val();
+	var b_code = $("[name = 'b_code']").val();
+	var d_code = $("[name = 'dept_code']").val();
+	var sect_code = $("[name = 'sect_code']").val();
+
+	$(".showEmp")	.html("");		
+	
+	$(".respSubSection").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+
+
+		$.ajax({
+			type:"POST",
+			url:"../payroll/ajaxprocess.php?request=l_subsec",
+			data : { c_code:c_code, b_code:b_code, d_code:d_code, sect_code:sect_code },
+			success:function(data){
+				
+				data = data.trim();					
+				
+				$(".respSubSection").html('');
+				$("#sub_sect").hide();
+				$(".sub_section").html(data);
+
+
+					//<!--------------- hide if the selected is no value ---------------------->
+						
+						if(sect_code == ""){
+							
+							$("#sub_sect").show();
+							$(".sub_section").html('');	
+						}
+
+
+					//<!----------- End  hide of if the selected is no value ---------------------->
+
+
+			}
+		
+		});	
+
+}
+
+function sub_sect(){
+
+	
+
+	var c_code = $("[name = 'code']").val();
+	var b_code = $("[name = 'b_code']").val();
+	var d_code = $("[name = 'dept_code']").val();
+	var sect_code = $("[name = 'sect_code']").val();
+	var sub_sect_code = $("[name = 'sub_sect_code']").val();
+
+	$(".showEmp")	.html("");
+
+	$(".employeeFilter").hide();
+	
+
+	
+		$(".respUnit").html('<img src="../assets/img/loader.gif" alt="" width="16" height="16" border="0" /> <span class = "loading_msg">Please Wait....</span>');
+
+
+		$.ajax({
+			type:"POST",
+			url:"../payroll/ajaxprocess.php?request=l_unit",
+			data : { c_code:c_code, b_code:b_code, d_code:d_code, sect_code:sect_code, sub_sect_code:sub_sect_code },
+			success:function(data){
+				
+				data = data.trim();	
+				
+				$(".respUnit").html('');
+				$("#unit").hide();
+				$(".unit").html(data);
+
+
+					//<!--------------- hide if the selected is no value ---------------------->
+						
+						if(sub_sect_code == ""){
+							
+							$("#unit").show();
+							$(".unit").html('');	
+						}
+
+
+					//<!----------- End  hide of if the selected is no value ---------------------->
+
+			}
+		
+		});	
+
+}
